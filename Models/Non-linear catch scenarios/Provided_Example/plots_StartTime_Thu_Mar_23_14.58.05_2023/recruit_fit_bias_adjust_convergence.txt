@@ -1,0 +1,19 @@
+$par
+[1] 1946.131737 1971.236124 2014.709181 2021.072065    0.967042
+
+$objective
+[1] 0.02068194
+
+$convergence
+[1] 0
+
+$iterations
+[1] 36
+
+$evaluations
+function gradient 
+      45      226 
+
+$message
+[1] "both X-convergence and relative convergence (5)"
+

@@ -1,0 +1,19 @@
+$par
+[1] 1912.010818 1978.576777 2011.808537 2020.139157    0.892476
+
+$objective
+[1] 0.08599222
+
+$convergence
+[1] 1
+
+$iterations
+[1] 149
+
+$evaluations
+function gradient 
+     200      815 
+
+$message
+[1] "function evaluation limit reached without convergence (9)"
+
