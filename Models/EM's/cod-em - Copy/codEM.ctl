@@ -1,6 +1,7 @@
 #V3.30
 #C file created using the SS_writectl function in the R package r4ss
 #C file write time: 2024-02-14 13:48:37.693721
+#New comment to test git
 #Created from codOM @ G:\My Drive\UW_masters_Punt\Models\OM's\cod-om
 #
 0 # 0 means do not read wtatage.ss; 1 means read and usewtatage.ss and also read and use growth parameters
