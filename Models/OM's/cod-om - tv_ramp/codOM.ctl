@@ -31,7 +31,7 @@
 1 #_time-vary parm bound check (1=warn relative to base parm bounds; 3=no bound check); Also see env (3) and dev (5) options to constrain with base bounds
 #
 # AUTOGEN
- 0 0 0 0 0 # autogen: 1st element for biology, 2nd for SR, 3rd for Q, 4th reserved, 5th for selex
+ 1 0 0 0 0 # autogen: 1st element for biology, 2nd for SR, 3rd for Q, 4th reserved, 5th for selex
 # where: 0 = autogen time-varying parms of this category; 1 = read each time-varying parm line; 2 = read then autogen if parm min==-12345
 #
 #_Available timevary codes
@@ -67,7 +67,7 @@
 #_growth_parms
 #_ LO HI INIT PRIOR PR_SD PR_type PHASE env_var&link dev_link dev_minyr dev_maxyr dev_PH Block Block_Fxn
 # Sex: 1  BioPattern: 1  NatMort
- 0.01 1.8 0.2 0.1 0.8 0 -3 0 0 0 0 0 0 0 # NatM_uniform_Fem_GP_1
+ 0.01 1.8 0.2 0.1 0.8 0 -3 0 0 0 0 0 -2 0 # NatM_uniform_Fem_GP_1
 # Sex: 1  BioPattern: 1  Growth
  1 100 20 30.8 0.2 0 4 0 0 0 0 0 0 0 # L_at_Amin_Fem_GP_1
  6.6 660 132 120.1 0.2 0 4 0 0 0 0 0 0 0 # L_at_Amax_Fem_GP_1
@@ -97,8 +97,11 @@
  1e-06 0.999999 0.5 0.5 0.5 0 -99 0 0 0 0 0 0 0 # FracFemale_GP_1
 #  M2 parameter for each predator fleet
 #
-#_no timevary MG parameters
-#
+#timevary MG parameters
+#_LO 	HI 	 INIT 	PRIOR 	PR_SD PR_type  PHASE
+ 0.01  0.8    0.3      0.1     0.8    0      -1 # NatM_uniform_Fem_GP_1_TrendFinal_direct_
+ 1     100    65       50.5    0.5    6      -1 # NatM_uniform_Fem_GP_1_TrendInfl_yr_
+ 1     20     5        3       3      6      -1 # NatM_uniform_Fem_GP_1_TrendWidth_yr_
 #_seasonal_effects_on_biology_parms
  0 0 0 0 0 0 0 0 0 0 #_femwtlen1,femwtlen2,mat1,mat2,fec1,fec2,Malewtlen1,malewtlen2,L1,K
 #_ LO HI INIT PRIOR PR_SD PR_type PHASE
