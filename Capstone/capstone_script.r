@@ -11,13 +11,17 @@ library(ggplot2)
 library(gridExtra)
 
 
-
+setwd("C:/UW_masters_Punt/Capstone")
 #Pull in the data files
 year_results <- readRDS("year_results.RDATA")
-sample_size_results <- readRDS("sample_size_results.RDATA")
+sample_size_results <- readRDS("sample_size_res.RDATA")
 sample_size_results <- fp25_em
 
 year_scalar <- tibble(year_results[[1]])
+
+
+scalar_res_years <- read.csv("E:/compu_lab_pc/tyler_years_sim/ss3sim_dq.csv")
+year_scalar <- scalar_res_years
 
 
 SSB_true_sample_size <- 1508010000
@@ -40,14 +44,13 @@ year_scalar%>%
          years = factor(years, levels = c(1,2,5,10)))->year_scalar
 
 
-
+table(year_scalar$scenario)
 
 
 
 
 ###### PLots for sample size df
 
-setwd("C:/UW_masters_Punt/Capstone/")
 ## Plot 1 Spawning stock biomass
 scenario_1_ssb <- sample_size_results%>%
   filter(model_run == "em",
@@ -100,10 +103,10 @@ scenario_1_conf_int <- sample_size_results%>%
 
 ### PLots for years
 
-true_ssb_scenario <- year_scalar%>%
+true_ssb_scenario <- year_dq%>%
   filter(model_run == "om",
          year == 100)%>%
-  group_by(scenario)%>%
+  group_by(scenario,iteration)%>%
   summarise(mean_true_ssb = mean(Value.SSB))
 
 true_ssb <- mean(true_ssb_scenario$mean_true_ssb)
@@ -153,15 +156,23 @@ scneario_2_conf_int <- year_scalar%>%
   ggtitle("Scenario 2: Times treu value in 90 CI")
 
 
-plots <- list(scenario_1_ssb,scenario_1_cv,scenario_1_conf_int,
-           scenario_2_ssb, scenario_2_cv,scneario_2_conf_int)
 
-ggsave(
-  filename = "capstone_plots.pdf", 
-  plot = marrangeGrob(plots, nrow=1, ncol=1), 
-  width = 15, height = 9
-)
-### Lets do some convergence checks on 1 yrs, 0.025
+ems <- year_scalar%>%
+  filter(model_run == "em",
+         year == 100)%>%
+  #calculate CI s
+  mutate(ci_low = Value.SSB-1.645*(StdDev.SSB/sqrt(1)),
+         ci_high = Value.SSB+1.645*(StdDev.SSB/sqrt(1)))
+# 
+# plots <- list(scenario_1_ssb,scenario_1_cv,scenario_1_conf_int,
+#            scenario_2_ssb, scenario_2_cv,scneario_2_conf_int)
+# 
+# ggsave(
+#   filename = "capstone_plots.pdf", 
+#   plot = marrangeGrob(plots, nrow=1, ncol=1), 
+#   width = 15, height = 9
+# )
+# ### Lets do some convergence checks on 1 yrs, 0.025
 # xx <- tibble(dq)%>%
 #   filter(scenario == "sd_0.025_yrs1")->z
 # 
@@ -170,31 +181,54 @@ ggsave(
 #   geom_point()+
 #   geom_hline(yintercept = 0.01)
 # windows()
-# year_scalar%>%
-#   filter(model_run == "em",
-#          year == 100)%>%
-#   #calculate CI s
-#   mutate(ci_low = Value.SSB-1.645*(StdDev.SSB/sqrt(1)),
-#          ci_high = Value.SSB+1.645*(StdDev.SSB/sqrt(1)))%>%
-#   filter(scenario == "sd_0.025_yrs1")%>%
-#   
-#   ggplot()+
-#   geom_point(mapping = aes(x = iteration, y = Value.SSB))+
-#   geom_errorbar(mapping = aes(x = iteration, ymin = ci_low, ymax = ci_high))+
-#   geom_hline(yintercept = true_ssb, col = "red")
+# 
+plot <- year_scalar%>%
+  filter(model_run == "em",
+         year == 100)%>%
+  #calculate CI s
+  mutate(ci_low = Value.SSB-1.645*(StdDev.SSB/sqrt(1)),
+         ci_high = Value.SSB+1.645*(StdDev.SSB/sqrt(1)))%>%
+  # filter(scenario == "sd_0.025_yrs1")%>%
+
+  ggplot()+
+  geom_point(mapping = aes(x = Value.SSB, y = iteration), alpha = 0.3)+
+  geom_errorbar(mapping = aes(y = iteration, xmin = ci_low, xmax = ci_high), alpha = 0.3)+
+
+  # geom_point(mapping = aes(x = iteration, y = ci_low, col = as.factor(iteration)))+
+  # geom_point(mapping = aes(x = iteration, y = ci_high, col = as.factor(iteration)))+
+  geom_vline(xintercept = true_ssb)+
+  facet_grid(years ~ sd_level)+
+  geom_vline(xintercept = true_ssb, col = "red")+
+  xlab("SSB_100 90 CI")
+# 
+# ggsave("plot.pdf")
 # 
 # 
-#   geom_point(mapping = aes(x = iteration, y = ci_low, col = as.factor(iteration)))+
-#   geom_point(mapping = aes(x = iteration, y = ci_high, col = as.factor(iteration)))+
-#   geom_hline(yintercept = true_ssb)
-#   
-#   
+# names(year_scalar)
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
 #   year_scalar%>%
 #     filter(model_run == "em",
 #            year == 100)%>%
 #     filter(scenario == "sd_0.025_yrs1")%>%
-#     
-#     
+# 
+# 
 #     ggplot(aes(x = iteration, y = Value.SSB-true_ssb))+
 #     geom_point()+
-#     geom_hline(yintercept = 0)
+#     geom_hline(yintercept = 0, col = "red")
+
+xx <- om_rep$sizeselex

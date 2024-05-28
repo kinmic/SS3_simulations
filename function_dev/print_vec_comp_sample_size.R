@@ -4,4 +4,4 @@ printVecAsis <- function(x,m) {
                 paste0("c(", paste(x, collapse=", "), ")")))}
 
 
-printVecAsis(base_data_survey,100)
+# printVecAsis(base_data_survey,100)

@@ -17,11 +17,11 @@ year_results <- readRDS("year_results.RDATA")
 sample_size_results <- readRDS("sample_size_res.rdata")
 
 
-#years has all data, just select the scalar
-year_scalar <- tibble(year_results[[1]])
+#years has all data, just select the dq
+year_dq <- tibble(year_results[[1]])
+year
 
-
-SSB_true_sample_size <- 1508010000
+# SSB_true_sample_size <- 1508010000
 
 ## Add sd level 
 sd_levls <- rep(rep(c(0.025,0.05,0.1,0.125,0.15),each = 7600),5)
@@ -35,10 +35,10 @@ sample_size_results%>%
 sd_levls <- rep(rep(c(0.025,0.05,0.1,0.125,0.15),each = 70800))
 years <- rep(rep(c(1,10,2,5),each = 17700),5)
 
-year_scalar%>%
+year_dq%>%
   arrange(as.factor(scenario))%>%
   mutate(sd_level = factor(sd_levls, levels = c(0.025,0.05,0.1,0.125,0.15)),
-         years = factor(years, levels = c(1,2,5,10)))->year_scalar
+         years = factor(years, levels = c(1,2,5,10)))->year_dq
 
 
 
@@ -101,19 +101,20 @@ scenario_1_conf_int <- sample_size_results%>%
 
 ### PLots for years
 
-true_ssb_scenario <- year_scalar%>%
+true_ssb_scenario <- year_dq%>%
   filter(model_run == "om",
          year == 100)%>%
   group_by(scenario)%>%
-  summarise(mean_true_ssb = mean(Value.SSB))
+  summarise(med_true_ssb = median(Value.SSB))
 
-true_ssb <- mean(true_ssb_scenario$mean_true_ssb)
+true_ssb <- median(true_ssb_scenario$med_true_ssb)
 
 
 ## Plot 1 SSB
-scenario_2_ssb <- year_scalar%>%
+scenario_2_ssb <- year_dq%>%
   filter(model_run == "em",
-         year == 100)%>%
+         year == 100,
+         years != 1)%>%
   ggplot(aes(x = years, y = Value.SSB))+
   geom_boxplot()+
   geom_hline(aes(yintercept = true_ssb))+
@@ -122,27 +123,43 @@ scenario_2_ssb <- year_scalar%>%
   ylab("SSB_100")
 
 #PLot 2 CV
-scenario_2_cv <- year_scalar%>%
+scenario_2_cv <- year_dq%>%
   filter(model_run == "em",
-         year == 100)%>%
+         year == 100,
+         years != 1)%>%
   group_by(sd_level,years)%>%
   summarise(cv = (StdDev.SSB/Value.SSB)*100)%>%
   
-  ggplot(aes(x = years, y = cv))+
+  ggplot(aes(x = years, y = cv, fill = sd_level))+
   geom_boxplot()+
-  facet_wrap(~sd_level)+
+  #facet_wrap(~sd_level)+
   ylab("CV of SSB_100")+
   ggtitle("Scenario 2: CV of SSB_100")
 
 ## Plot 3 # times true value falls withing confint
-scneario_2_conf_int <- year_scalar%>%
+
+#First, pull the true OM SSB values for the year 100 and all iterations
+
+year_dq%>%
+  filter(model_run == "om",
+         year == 100,
+         years != 1)%>%
+  #calculate CI s
+  select(Value.SSB,scenario)%>%
+  rename(SSB_100_om = Value.SSB,
+         om_scenario = scenario)->om_ssb_100
+
+scneario_2_conf_int <- year_dq%>%
   filter(model_run == "em",
-         year == 100)%>%
+         year == 100,
+         years != 1)%>%
+  #add the true SSB from om as a column
+  cbind(om_ssb_100)%>%
   #calculate CI s
   mutate(ci_low = Value.SSB-1.645*(StdDev.SSB/sqrt(1)),
          ci_high = Value.SSB+1.645*(StdDev.SSB/sqrt(1)))%>%
   #conditionally count values : 1 if true val in , 0 if out
-  mutate(true_val_in = ifelse( true_ssb>= ci_low &  true_ssb <= ci_high,1,0))%>%
+  mutate(true_val_in = ifelse( SSB_100_om>= ci_low &  SSB_100_om <= ci_high,1,0))%>%
   group_by(years,sd_level,scenario)%>%
   summarise(total_ci_90 = sum(true_val_in,na.rm = T))%>%
   
@@ -171,7 +188,7 @@ plots <- list(scenario_1_ssb,scenario_1_cv,scenario_1_conf_int,
 #   geom_point()+
 #   geom_hline(yintercept = 0.01)
 # windows()
-# year_scalar%>%
+# year_dq%>%
 #   filter(model_run == "em",
 #          year == 100)%>%
 #   #calculate CI s
@@ -190,7 +207,7 @@ plots <- list(scenario_1_ssb,scenario_1_cv,scenario_1_conf_int,
 #   geom_hline(yintercept = true_ssb)
 #   
 #   
-#   year_scalar%>%
+#   year_dq%>%
 #     filter(model_run == "em",
 #            year == 100)%>%
 #     filter(scenario == "sd_0.025_yrs1")%>%
@@ -199,3 +216,57 @@ plots <- list(scenario_1_ssb,scenario_1_cv,scenario_1_conf_int,
 #     ggplot(aes(x = iteration, y = Value.SSB-true_ssb))+
 #     geom_point()+
 #     geom_hline(yintercept = 0)
+
+
+
+ems <-  year_dq%>%
+  filter(model_run == "em",
+         year == 100)%>%
+  #calculate CI s
+  mutate(ci_low = Value.SSB-1.645*(StdDev.SSB/sqrt(1)),
+         ci_high = Value.SSB+1.645*(StdDev.SSB/sqrt(1)))
+
+nrow(ems)
+
+year_dq%>%
+  filter(model_run == "om",
+         year == 100)%>%
+  #calculate CI s
+  select(Value.SSB,scenario)%>%
+  rename(SSB_om = Value.SSB,
+         om_scen = scenario)->oms
+
+nrow(oms)
+
+year_dq%>%
+  filter(model_run == "em",
+         year == 100)%>%
+  #calculate CI s
+  mutate(ci_low = Value.SSB-1.645*(StdDev.SSB/sqrt(1)),
+         ci_high = Value.SSB+1.645*(StdDev.SSB/sqrt(1)))%>%
+  cbind(oms)%>%
+  #conditionally count values : 1 if true val in , 0 if out
+  mutate(true_val_in = ifelse( SSB_om>= ci_low &  SSB_om <= ci_high,1,0))%>%
+  group_by(years,sd_level,scenario)%>%
+  summarise(total_ci_90 = sum(true_val_in,na.rm = T))%>%
+  
+  ggplot(aes(x = years, y = total_ci_90))+
+  geom_bar(stat = "identity")+
+  facet_wrap(~sd_level)+
+  scale_y_continuous(breaks = seq(0,100,10))+
+  geom_hline(yintercept= 90, lty = 2)+
+  ggtitle("Scenario 2: Times treu value in 90 CI")
+
+
+#Convergence test
+year_scalar<- read.csv(paste0(getwd(),"/years_sims/ss3sim_scalar.csv"))
+
+year_scalar%>%
+  filter(model_run == "em")%>%
+  ggplot(aes(x = iteration, y = max_grad))+
+  geom_point()+
+  geom_hline(yintercept = 0.01)+
+  ylim(c(0,0.1))+
+  facet_wrap(~scenario)
+
+par(mfrow=c(2,1))

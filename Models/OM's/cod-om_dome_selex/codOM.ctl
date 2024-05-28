@@ -240,10 +240,10 @@
 # 2   Survey LenSelex
             12           102          41.8          41.8          0.05             0          2          0          0          0          0        0.5          0          0  #  Size_DblN_peak_Survey(2)
             -5             3            -4            -4          0.05             0        -99          0          0          0          0        0.5          0          0  #  Size_DblN_top_logit_Survey(2)
-            -4            26           5.2           5.2          0.05             0          3          0          0          0          0        0.5          0          0  #  Size_DblN_ascend_se_Survey(2)
-            -2            16            14            14          0.05             0        -99          0          0          0          0        0.5          0          0  #  Size_DblN_descend_se_Survey(2)
-          -100           100           -99           -99          0.05             0        -99          0          0          0          0        0.5          0          0  #  Size_DblN_start_logit_Survey(2)
-          -100           100            99            99          0.05             0        -99          0          0          0          0        0.5          0          0  #  Size_DblN_end_logit_Survey(2)
+            -4            12           6.6           6.6          0.05             0          3          0          0          0          0        0.5          0          0  #  Size_DblN_ascend_se_Survey(2)
+            -2            16            6             6          0.05             0        -99          0          0          0          0        0.5          0          0  #  Size_DblN_descend_se_Survey(2)
+          -100           100           -999           -99          0.05             0        -99          0          0          0          0        0.5          0          0  #  Size_DblN_start_logit_Survey(2)
+          -100           100           -999            99          0.05             0        -99          0          0          0          0        0.5          0          0  #  Size_DblN_end_logit_Survey(2)
 # 1   Fishery AgeSelex
              0             1             0           0.1            99             0        -99          0          0          0          0        0.5          0          0  #  minage@sel=1_Fishery(1)
              0           101            25           100            99             0        -99          0          0          0          0        0.5          0          0  #  maxage@sel=1_Fishery(1)
