@@ -27,24 +27,25 @@ library(ss3sim)
 library(dplyr)
 
 #Determine Fmsy
-om_in <- "C:/UW_masters_Punt/Models/OM's/cod-om"
-results_out <- "fmsy_cod"
-
-fmsy_val <- profile_fmsy(
-  om_in,
-  results_out,
-  start = 0,
-  end = 2,
-  by_val = 0.01,
-  verbose = FALSE
-)
-
+# om_in <- "C:/UW_masters_Punt/Models/OM's/cod-om"
+# results_out <- "fmsy_cod"
+# 
+# fmsy_val <- profile_fmsy(
+#   om_in,
+#   results_out,
+#   start = 0,
+#   end = 2,
+#   by_val = 0.01,
+#   verbose = FALSE
+# )
+saveRDS(fmsy_val,"C:/UW_masters_Punt/fishing_patterns/cod/fmsy_val.rdata")
+fmsy_val <- readRDS("C:/UW_masters_Punt/fishing_patterns/cod/fmsy_val.rdata")
 windows()
 par(mfrow = c(2,2))
 
 plot(1, type = "n", main = "Yield curve (cod)",
      xlab = "F", ylab = "Yield", ylim = c(0,max(fmsy_val$eqCatch)), xlim = c(0,1))
-lines(x = fmsy_val$fValues, y = fmsy_val$eqCatch, lwd = 3)
+lines(x = fmsy_val$fValues, y = fmsy_val$eqCatch, lwd = 0.1)
 abline(h = max(fmsy_val$eqCatch), col = "orange")
 abline(h = 0.85*max(fmsy_val$eqCatch), col = "lightblue")
 abline(v = fmsy, col = "orange")
@@ -82,9 +83,9 @@ f_flat_vec <- c(rep(0,25),rep(fmsy,75))
 
 plot(x = 0, y = 0,ylim = c(0,f_high+0.1), xlim = c(0,100),
      xlab = "years", ylab = "F", main = "F flat")
-abline(h = fmsy, lty = 1, col = "orange",lwd = 3)
+abline(h = fmsy, lty = 1, col = "orange",lwd = 2)
 text(x=1.5, y=fmsy+0.01, labels="F MSY", col = "orange")
-lines(x = years, y = f_flat_vec, type = "l",lty = 1)
+lines(x = years, y = f_flat_vec, type = "l",lty = 2, lwd = 2)
 
 
 ## Pattern 2 F linear
@@ -99,7 +100,7 @@ abline(h = fmsy, lty = 1, col = "orange",lwd = 3)
 text(x=1.5, y=f_low-0.01, labels="F low", col = "lightblue")
 text(x=1.5, y=f_high+0.01, labels="F high",col = "lightblue")
 text(x=1.5, y=fmsy+0.01, labels="F MSY", col = "orange")
-lines(x = years, y = f_linear_vec, type = "l",lty = 1)
+lines(x = years, y = f_linear_vec, type = "l",lty = 2, lwd = 2)
 
 
 ## Pattern 3 - 2 way trip
@@ -116,7 +117,7 @@ abline(h = fmsy, lty = 1, col = "orange",lwd = 3)
 text(x=1.5, y=f_low-0.01, labels="F low", col = "lightblue")
 text(x=1.5, y=f_high+0.01, labels="F high",col = "lightblue")
 text(x=1.5, y=fmsy+0.01, labels="F MSY", col = "orange")
-lines(x = years, y = f_2way_vec, type = "l",lty = 1)
+lines(x = years, y = f_2way_vec, type = "l",lty = 2, lwd = 2)
 
 ##Save reference points
 saveRDS(cod_msy_df,"C:/UW_masters_Punt/fishing_patterns/cod/cod_msy.rds")
@@ -125,3 +126,12 @@ saveRDS(cod_msy_df,"C:/UW_masters_Punt/fishing_patterns/cod/cod_msy.rds")
 cod_msy_df <- NULL
 
 x <- readRDS("C:/UW_masters_Punt/fishing_patterns/cod/cod_msy.rds")
+
+
+#### Save as strings for use in ss3sim
+f_flat_vec <- "rep(0.12,75)"
+f_linear_vec <- "seq(0,0.19, length.out = 75)"
+f_2way_vec <- "c(seq(0,0.19, length.out = 60),seq(0.19,0.06,length.out = 15))"
+
+f_vector_cod <- list("f_flat_vec" = f_flat_vec,"f_linear_vec" = f_linear_vec,"f_2way_vec" = f_2way_vec)
+saveRDS(f_vector_cod, "C:/UW_masters_Punt/fishing_patterns/cod/f_vector_cod.rdata")

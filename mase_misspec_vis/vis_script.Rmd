@@ -1,0 +1,264 @@
+---
+title: "MASE misspec data vis"
+author: "M.Kinneen"
+date: "2024-06-10"
+output: html_document
+---
+
+```{r}
+library(dplyr)
+library(ggplot2)
+
+```
+
+
+Data read in and processing
+```{r}
+list.files("data/")
+two_way_1_yr <- read.csv("data/mase_df_retro_1_multi_step_two_way.csv")
+two_way_3_yr <- read.csv("data/mase_df_retro_3_multi_step_two_way.csv")
+two_way_5_yr <- read.csv("data/mase_df_retro_5_multi_step_two_way.csv")
+linear_1_yr <- read.csv("data/mase_df_1yr_multistep_linear_f.csv")
+linear_3_yr <- read.csv("data/mase_df_3yr_multistep_linear_f.csv")
+linear_5_yr <- read.csv("data/mase_df_5yr_multistep_linear_f.csv")
+flat_1_yr <- read.csv("data/mase_df_retro_1_multi_step_flat.csv")
+flat_3_yr <- read.csv("data/mase_df_retro_3_multi_step_flat.csv")
+flat_5_yr <- read.csv("data/mase_df_retro_5_multi_step_flat.csv")
+
+
+
+all_years_two_way_df <- rbind(two_way_1_yr,
+                              two_way_3_yr,
+                              two_way_5_yr)
+
+all_years_two_way_df$f_pattern <- as.factor("two-way")
+
+all_years_linear_df <- rbind(linear_1_yr,
+                              linear_3_yr,
+                              linear_5_yr)
+
+all_years_linear_df$f_pattern <- as.factor("linear")
+
+all_years_flat_df <- rbind(flat_1_yr,
+                              flat_3_yr,
+                              flat_5_yr)
+
+all_years_flat_df$f_pattern <- as.factor("flat")
+
+full_df <- rbind(all_years_flat_df,all_years_linear_df,all_years_two_way_df)
+
+full_df <- full_df%>%
+  mutate(retro_years = factor(retro_years, levels = c("-1","-3","-5")),
+         error_name  = factor(error_name, levels = c("True","M misspec","h misspec",
+                                                    "tv mort","ac weight","lc weight","inflated catch","hyperstability","hyperdepletion")))
+
+
+## Now pull in data for hindcast 2 scenarios
+linear_drop <- read.csv("data/linear_f_drop_types_final.csv")
+linear_drop$f_pattern <- "linear f"
+
+two_way_drop <- read.csv("data/two_way_drop_types_final.csv")
+two_way_drop$f_pattern <- "two_way f"
+
+
+
+drop_types <- rbind(linear_drop,two_way_drop)
+
+
+table(linear_drop$retro_years,linear_drop$step_size)
+
+unique(drop_types$retro_years)
+
+
+
+plot_labels <- c("True","M mis.","h mis.","tv-M","AC wt","LC wt","inf. catch","h-stab","h-dep")
+
+
+```
+
+## 
+
+```{r}
+# full_df%>%
+#   filter(step_size == 1)%>%
+#   ggplot(aes(x = as.factor(error_name), y = cpue, fill = f_pattern))+
+#   geom_boxplot()+
+#   facet_wrap(~as.factor(retro_years))+
+#   scale_x_discrete(labels = plot_labels)+
+#   theme(axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=0.5))+
+#   xlab(NULL)+
+#   ylab("MASE (cpue)")+
+#   ggtitle(" Hindcast 1: MASE of CPUE", subtitle = "Cod")
+full_df%>%
+  filter(step_size == 1)%>%
+  group_by(retro_)
+
+full_df%>%
+  filter(step_size == 1)%>%
+  ggplot(aes(x = as.factor(error_name), y = log(cpue), fill = f_pattern))+
+  geom_boxplot()+
+  facet_wrap(~as.factor(retro_years))+
+  scale_x_discrete(labels = plot_labels)+
+  theme(axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=0.5))+
+  xlab(NULL)+
+  ylab("log MASE (cpue)")+
+  ggtitle("Hindcast 1: log MASE of CPUE", subtitle = "Cod")+
+  scale_fill_manual(values=c("#999999", "#E69F00", "#56B4E9"))
+
+ggsave("plots/ss_1_mase_log_cpue.png",width = 10, height = 6)
+
+full_df%>%
+  filter(step_size == 1,
+         error_name != "tv mort")%>%
+  ggplot(aes(x = as.factor(error_name), y = cpue, fill = f_pattern))+
+  geom_boxplot()+
+  facet_wrap(~as.factor(retro_years))+
+  scale_x_discrete(labels = plot_labels[c(1:3,5:9)])+
+  theme(axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=0.5))+
+  xlab(NULL)+
+  ylab("MASE (cpue)")+
+  ggtitle("Hindcast 1: True MASE of CPUE", subtitle = "Cod")+
+  scale_fill_manual(values=c("#999999", "#E69F00", "#56B4E9"))
+
+ggsave("plots/ss_1_mase_no_tv_cpue.png",width = 10, height = 6)
+
+full_df%>%
+  filter(step_size == 1,
+         error_name != "tv mort",
+         retro_years == -1)%>%
+  group_by(error_name)%>%
+  summarise(med_log_cpuye = median(age_comp_fit_table,na.rm = T))
+
+
+# full_df%>%
+#   filter(step_size == 1,
+#          retro_years == -3)%>%
+#   ggplot(aes(x = as.factor(error_name), y = log(cpue), fill = f_pattern))+
+#   geom_boxplot()+
+#   facet_wrap(~as.factor(retro_years))+
+#   scale_x_discrete(labels = plot_labels)+
+#   theme(axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=0.5))+
+#   xlab(NULL)+
+#   ylab("MASE (cpue)")+
+#   ggtitle(" Hindcast 1: MASE of CPUE", subtitle = "Cod")
+
+
+
+
+  full_df%>%
+  filter(step_size == 1)%>%
+  ggplot(aes(x = as.factor(error_name), y = age_comp_fit_table, fill = f_pattern))+
+  geom_boxplot()+
+  facet_wrap(~as.factor(retro_years))+
+  scale_x_discrete(labels = plot_labels)+
+  theme(axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=0.5))+
+  xlab(NULL)+
+  ylab("MASE (Mean age)")+
+  ggtitle("Hindcast 1: MASE of mean age of catch", subtitle = "Cod")+
+      scale_fill_manual(values=c("#999999", "#E69F00", "#56B4E9"))
+
+ggsave("plots/ss_1_mase_mean_age.png",width = 10, height = 6,)
+
+  
+  
+  
+  
+  full_df%>%
+  filter(step_size == 1)%>%
+  ggplot(aes(x = as.factor(error_name), y = len_comp_fit_table, fill = f_pattern))+
+  geom_boxplot()+
+  facet_wrap(~as.factor(retro_years))+
+  scale_x_discrete(labels = plot_labels)+
+  theme(axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=0.5))+
+  xlab(NULL)+
+      ylab("MASE (Mean len)")+
+      ggtitle("Hindcast 1: MASE of mean length of catch", subtitle = "Cod")+
+      scale_fill_manual(values=c("#999999", "#E69F00", "#56B4E9"))
+
+
+
+  ggsave("plots/ss_1_mase_mean_length.png",width = 10, height = 6)
+
+  
+
+
+
+```
+
+## Hindcast 2 scenarios
+
+```{r pressure, echo=FALSE}
+
+drop_types%>%
+  #filter(step_size == 1)%>%
+  ggplot(aes(x = as.factor(error_name), y = age_comp_fit_table, fill = f_pattern))+
+  geom_boxplot()+
+  facet_wrap(~as.factor(retro_years))+
+  scale_x_discrete(labels = plot_labels)+
+  theme(axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=0.5))+
+  xlab(NULL)+
+  ylab("MASE (cpue)")+
+  ggtitle(" Hindcast 1: MASE of CPUE", subtitle = "Cod")
+
+
+
+
+```
+
+
+Histogram of estimated paramters in CSM
+```{r}
+
+csm_scalar <- read.csv("data/ss3sim_scalar.csv")
+csm_scalar$scenario
+
+#get a list of estimated paramters
+rep <- r4ss::SS_output(dir = "E:/cod_sims_thesis/full_models/flat_f/EM0_csm_f_flat/20/em")
+
+est_pars_list <- rep$parameters[rep$parameters$Phase >= 0,"Label"][c(1:6,108:111)]
+
+
+csm_est_par_dists <- csm_scalar%>%
+  filter(
+         model_run == "em")%>%
+  select(c(est_pars_list[1:5],SR_LN_R0,Size_DblN_peak_Fishery_1,Size_DblN_ascend_se_Fishery_1,
+           Size_DblN_peak_Survey_2,Size_DblN_ascend_se_Survey_2,scenario))%>%
+  
+    pivot_longer(est_pars_list[1]:Size_DblN_ascend_se_Survey_2, 
+                 names_to = "paramter", 
+                 values_to = "value") %>% 
+    ggplot(aes(x = value)) + 
+    geom_histogram()+
+  facet_grid(scenario~paramter,scales = "free")
+  
+ggsave("plots/csm_est_par_dists.png",width = 10,height = 5)
+
+
+
+
+csm_scalar%>%
+  filter(
+         model_run == "em")%>%
+  select(SR_LN_R0,scenario)%>%
+  
+    pivot_longer(SR_LN_R0, 
+                 names_to = "paramter", 
+                 values_to = "value") %>% 
+    ggplot(aes(x = value)) + 
+    geom_histogram()+
+  facet_wrap(~scenario,scales = "free")
+
+scens <- unique(csm_scalar$scenario)[c(1:6,8:10)]
+
+csm_scalar%>%
+  filter(model_run == "em",
+         scenario %in% scens)%>%
+  
+  ggplot(aes(x = scenario, y = depletion))+
+  geom_boxplot()+
+  scale_x_discrete(labels = plot_labels)+
+  ggtitle("Depltion across scenarios", subtitle = "linear f")
+
+
+```
+

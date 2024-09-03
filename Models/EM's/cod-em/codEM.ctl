@@ -65,7 +65,7 @@
    -4	       4	      0	      0	  0	0	-99	0	0	0	0	0	0	0	#_RecrDist_Area_1    
    -4	       4	      0	      0	  0	0	-99	0	0	0	0	0	0	0	#_RecrDist_month_1   
    -4	       4	      1	      0	  0	0	-99	0	0	0	0	0	0	0	#_CohortGrowDev      
-  0.2	       3	      1	      1	  2	0	-99	0	0	0	0	0	0	0	#_Catch_Mult:_1      
+  0.2	       3	      1	      1	  2	0	-99	0	0	0	0	0	0	0	#_Catch_Mult_1
 1e-06	0.999999	    0.5	    0.5	0.5	0	-99	0	0	0	0	0	0	0	#_FracFemale_GP_1    
 #_no timevary MG parameters
 #
@@ -124,9 +124,9 @@
 -9999	0	0	0	0	0	#_terminator
 #_Q_parms(if_any);Qunits_are_ln(q)
 #_LO	HI	INIT	PRIOR	PR_SD	PR_type	PHASE	env-var	use_dev	dev_mnyr	dev_mxyr	dev_PH	Block	Blk_Fxn  #  parm_name
--20	20	0	0	99	0	-5	0	0	0	0	0	0	0	#_LnQ_base_Fishery(1)
+-20	20	0	0	99	0	 5	0	0	0	0	0	0	0	#_LnQ_base_Fishery(1)
  -5	 1	1	0	99	0	-5	0	0	0	0	0	0	0	#_Q_power_Fishery(1) 
--20	20	0	0	99	0	-5	0	0	0	0	0	0	0	#_LnQ_base_Survey(2) 
+-20	20	0	0	99	0	 5	0	0	0	0	0	0	0	#_LnQ_base_Survey(2) 
 #_no timevary Q parameters
 #
 #_size_selex_patterns

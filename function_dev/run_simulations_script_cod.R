@@ -64,6 +64,9 @@ sim_df <- make.sim(n_scen = 10, scen_names = EM_names,
                    om_dir = om_dir)
 
 
+######## Set all the estimation arguments to true value, so dont get character invalid error
+sim_df[,c("ce.par_name","ce.par_phase","ce.par_int")] <- c("_SR_LN(R0)","1","10.3")
+
 ###### EM1 M too high  ###########
 sim_df <- change_sim_df(df = sim_df, scen_name = EM_names[2],
                         par_name = "NatM_p_1_Fem_GP_1",
@@ -83,15 +86,17 @@ sim_df <- change_sim_df(df = sim_df, scen_name = EM_names[3],
 #Changeing weights mnaually - can creat e function later
 base_vec <- c(20,20,40,40,60,60,60,80,80,80,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100)
 
-sim_df[sim_df$scenarios == EM_names[5],"sa.Nsamp.1"] <- printVecAsis(base_vec*3)
+sim_df[sim_df$scenarios == EM_names[5],"sa.Nsamp.1"] <- "c(60,60,120,120,180,180,180,240,240,240,300,300,300,300,300,300,300,300,300,300,300,300,300,300,300)"
 sim_df[sim_df$scenarios == EM_names[5],"sa.Nsamp.2"] <- sim_df[sim_df$scenarios == EM_names[5],"sa.Nsamp.2"]*3
+sim_df[sim_df$scenarios == EM_names[5],c("ce.par_name","ce.par_phase","ce.par_int")] <- c("_SR_LN(R0)","1","10.3")
 
-
-###### EM5 Len comp weight  ###########
+###### EM5 Len comp weight  ################# EM5 Len comp weight  ###########NULL
 #Changeing weights mnaually - can create function later
 
-sim_df[sim_df$scenarios == EM_names[6],"sl.Nsamp.1"] <- printVecAsis(base_vec*3)
+sim_df[sim_df$scenarios == EM_names[6],"sl.Nsamp.1"] <- "c(60,60,120,120,180,180,180,240,240,240,300,300,300,300,300,300,300,300,300,300,300,300,300,300,300)"
 sim_df[sim_df$scenarios == EM_names[6],"sl.Nsamp.2"] <- sim_df[sim_df$scenarios == EM_names[6],"sl.Nsamp.2"]*3
+sim_df[sim_df$scenarios == EM_names[6],c("ce.par_name","ce.par_phase","ce.par_int")] <- c("_SR_LN(R0)","1","10.3") #fixing at true value as cant have empty ce column
+
 
 
 ###### EM6 Incorrect selex. shape  ###########
@@ -107,7 +112,7 @@ sim_df <- change_sim_df(df = sim_df, scen_name = EM_names[7],
 
 ##### EM7 catch multiplier #############
 #### Note thsi scen. requires a different em, om to be specifed ####
-sim_df <- change_sim_df(df = sim_df, scen_name = EM_names[8],par_name = "Catch_Mult:_1",
+sim_df <- change_sim_df(df = sim_df, scen_name = EM_names[8],par_name = "Catch_Mult_1",
                         par_int = 1.24,par_phase = -99,n_pars = 1
                         )
 
@@ -128,7 +133,7 @@ sim_df <- change_sim_df(df = sim_df, scen_name = EM_names[10],par_name = "Q_powe
                         )
 
 ###### EM3 Time varying M ---- Skipping so droprpws  ###########
-sim_df[sim_df$scenarios == EM_names[4],"om_dir"] <- c("C:/UW_masters_Punt/Models/OM's/cod-codOM_0.113_tv")
+sim_df[sim_df$scenarios == EM_names[4],"om_dir"] <- c("C:/UW_masters_Punt/Models/OM's/codOM_0.113_tv")
 
 ##### Test just the non linear scenarios
 # nli_sims <- sim_df[15:18,]
@@ -143,4 +148,5 @@ sim_df[sim_df$scenarios == EM_names[4],"om_dir"] <- c("C:/UW_masters_Punt/Models
 #                   user_recdevs = recdevs_cod)
 # 
 # run_ss3sim(iterations = 2, simdf = sim_df[5:6,1:23])
+
 

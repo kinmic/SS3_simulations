@@ -1,0 +1,1018 @@
+#V3.30.22.1;_safe;_compile_date:_Jan 30 2024;_Stock_Synthesis_by_Richard_Methot_(NOAA)_using_ADMB_13.1
+ss3.dat #_DataFile 
+om.ctl #_Control 
+Run_Date: Mon Jun 24 16:32:19 2024
+Final_phase: 1  N_iterations: 2
+#_LIKELIHOOD 
+Label logL*Lambda
+TOTAL_LogL 5.34405e+08
+Catch 5.34121e+08
+Survey 284114
+Length_comp 225.168
+Age_comp 255.452
+Recruitment 48.7876
+InitEQ_regime 0
+Sum_recdevs -12.0644
+Forecast_Recruitment 0.057982
+Parm_priors 0
+Parm_softbounds 0.000763113
+Parm_devs 0
+F_Ballpark 0
+Crash_Pen 0
+#_PARAMETERS
+#label value se active? range
+#_BIOLOGY
+NatM_uniform_Fem_GP_1 0.2 0 Fix 0.106145
+L_at_Amin_Fem_GP_1 20 0 Fix 0.191919
+L_at_Amax_Fem_GP_1 132 0 Fix 0.191919
+VonBert_K_Fem_GP_1 0.2 0 Fix 0.199199
+CV_young_Fem_GP_1 0.1 0 Fix 0.198396
+CV_old_Fem_GP_1 0.1 0 Fix 0.198396
+Wtlen_1_Fem_GP_1 6.8e-06 0 Fix 2.26667e-06
+Wtlen_2_Fem_GP_1 3.101 0 Fix 0.600999
+Mat50%_Fem_GP_1 38.18 0 Fix 0.7045
+Mat_slope_Fem_GP_1 -0.276 0 Fix 0.431
+Eggs/kg_inter_Fem_GP_1 1 0 Fix 0.666667
+Eggs/kg_slope_wt_Fem_GP_1 0 0 Fix 0.428571
+RecrDist_GP_1 0 0 Fix 0.5
+RecrDist_Area_1 0 0 Fix 0.5
+RecrDist_month_1 0 0 Fix 0.5
+CohortGrowDev 1 0 Fix 0.625
+Catch_Mult:_1_Fishery 1 0 Fix 0.285714
+FracFemale_GP_1 0.5 0 Fix 0.499999
+#_SPAWN_RECR
+SR_LN(R0) 18.7 0 Fix 0.91875
+SR_BH_steep 0.65 0 Fix 0.562499
+SR_sigmaR 0.4 0 Fix 0.2
+SR_regime 0 0 Fix 0.5
+SR_autocorr 0 0 Fix 0
+Main_RecrDev_1 0.311775 0 Fix 0.515589
+Main_RecrDev_2 -0.0799786 0 Fix 0.496001
+Main_RecrDev_3 -0.0479841 0 Fix 0.497601
+Main_RecrDev_4 -0.463974 0 Fix 0.476801
+Main_RecrDev_5 -0.934389 0 Fix 0.453281
+Main_RecrDev_6 -0.3325 0 Fix 0.483375
+Main_RecrDev_7 0.372187 0 Fix 0.518609
+Main_RecrDev_8 -0.286264 0 Fix 0.485687
+Main_RecrDev_9 -0.617869 0 Fix 0.469107
+Main_RecrDev_10 -0.528087 0 Fix 0.473596
+Main_RecrDev_11 -0.273962 0 Fix 0.486302
+Main_RecrDev_12 0.0250996 0 Fix 0.501255
+Main_RecrDev_13 0.174899 0 Fix 0.508745
+Main_RecrDev_14 0.433269 0 Fix 0.521663
+Main_RecrDev_15 -0.546796 0 Fix 0.47266
+Main_RecrDev_16 0.440812 0 Fix 0.522041
+Main_RecrDev_17 -0.247259 0 Fix 0.487637
+Main_RecrDev_18 -0.829577 0 Fix 0.458521
+Main_RecrDev_19 0.170702 0 Fix 0.508535
+Main_RecrDev_20 -0.5865 0 Fix 0.470675
+Main_RecrDev_21 -0.00283431 0 Fix 0.499858
+Main_RecrDev_22 -0.22674 0 Fix 0.488663
+Main_RecrDev_23 -0.458117 0 Fix 0.477094
+Main_RecrDev_24 0.184199 0 Fix 0.50921
+Main_RecrDev_25 0.246481 0 Fix 0.512324
+Main_RecrDev_26 0.244591 0 Fix 0.51223
+Main_RecrDev_27 0.0568554 0 Fix 0.502843
+Main_RecrDev_28 -0.0931812 0 Fix 0.495341
+Main_RecrDev_29 -0.0925971 0 Fix 0.49537
+Main_RecrDev_30 0.191143 0 Fix 0.509557
+Main_RecrDev_31 0.205398 0 Fix 0.51027
+Main_RecrDev_32 -0.228886 0 Fix 0.488556
+Main_RecrDev_33 0.350975 0 Fix 0.517549
+Main_RecrDev_34 0.00899203 0 Fix 0.50045
+Main_RecrDev_35 0.210465 0 Fix 0.510523
+Main_RecrDev_36 -0.184854 0 Fix 0.490757
+Main_RecrDev_37 0.230523 0 Fix 0.511526
+Main_RecrDev_38 -0.538558 0 Fix 0.473072
+Main_RecrDev_39 0.396495 0 Fix 0.519825
+Main_RecrDev_40 0.33384 0 Fix 0.516692
+Main_RecrDev_41 -0.266775 0 Fix 0.486661
+Main_RecrDev_42 -0.272856 0 Fix 0.486357
+Main_RecrDev_43 -0.43131 0 Fix 0.478434
+Main_RecrDev_44 -0.913943 0 Fix 0.454303
+Main_RecrDev_45 -1.04423 0 Fix 0.447788
+Main_RecrDev_46 -0.402657 0 Fix 0.479867
+Main_RecrDev_47 -0.282203 0 Fix 0.48589
+Main_RecrDev_48 0.0111431 0 Fix 0.500557
+Main_RecrDev_49 0.281226 0 Fix 0.514061
+Main_RecrDev_50 -0.295148 0 Fix 0.485243
+Main_RecrDev_51 0.0452216 0 Fix 0.502261
+Main_RecrDev_52 -0.0898589 0 Fix 0.495507
+Main_RecrDev_53 0.294697 0 Fix 0.514735
+Main_RecrDev_54 0.289817 0 Fix 0.514491
+Main_RecrDev_55 0.105277 0 Fix 0.505264
+Main_RecrDev_56 0.0940878 0 Fix 0.504704
+Main_RecrDev_57 0.37571 0 Fix 0.518785
+Main_RecrDev_58 -0.126436 0 Fix 0.493678
+Main_RecrDev_59 -0.585841 0 Fix 0.470708
+Main_RecrDev_60 -0.00461136 0 Fix 0.499769
+Main_RecrDev_61 0.435942 0 Fix 0.521797
+Main_RecrDev_62 -0.31767 0 Fix 0.484116
+Main_RecrDev_63 -0.384928 0 Fix 0.480754
+Main_RecrDev_64 0.186312 0 Fix 0.509316
+Main_RecrDev_65 0.227797 0 Fix 0.51139
+Main_RecrDev_66 0.474666 0 Fix 0.523733
+Main_RecrDev_67 -0.555906 0 Fix 0.472205
+Main_RecrDev_68 0.496284 0 Fix 0.524814
+Main_RecrDev_69 -0.0559784 0 Fix 0.497201
+Main_RecrDev_70 -0.468653 0 Fix 0.476567
+Main_RecrDev_71 0.5071 0 Fix 0.525355
+Main_RecrDev_72 -0.201769 0 Fix 0.489912
+Main_RecrDev_73 -0.316495 0 Fix 0.484175
+Main_RecrDev_74 -0.639364 0 Fix 0.468032
+Main_RecrDev_75 -0.393821 0 Fix 0.480309
+Main_RecrDev_76 -0.612984 0 Fix 0.469351
+Main_RecrDev_77 -0.576313 0 Fix 0.471184
+Main_RecrDev_78 0.345007 0 Fix 0.51725
+Main_RecrDev_79 -0.565902 0 Fix 0.471705
+Main_RecrDev_80 0.284641 0 Fix 0.514232
+Main_RecrDev_81 -0.522713 0 Fix 0.473864
+Main_RecrDev_82 -0.322339 0 Fix 0.483883
+Main_RecrDev_83 -0.469413 0 Fix 0.476529
+Main_RecrDev_84 0.565669 0 Fix 0.528283
+Main_RecrDev_85 -0.447856 0 Fix 0.477607
+Main_RecrDev_86 -0.387957 0 Fix 0.480602
+Main_RecrDev_87 -0.136652 0 Fix 0.493167
+Main_RecrDev_88 0.314599 0 Fix 0.51573
+Main_RecrDev_89 -0.372807 0 Fix 0.48136
+Main_RecrDev_90 -0.0417092 0 Fix 0.497915
+Main_RecrDev_91 -1.01425 0 Fix 0.449287
+Main_RecrDev_92 -0.423236 0 Fix 0.478838
+Main_RecrDev_93 0.0559913 0 Fix 0.5028
+Main_RecrDev_94 -0.230377 0 Fix 0.488481
+Main_RecrDev_95 0.0254403 0 Fix 0.501272
+Main_RecrDev_96 0.151748 0 Fix 0.507587
+Main_RecrDev_97 -0.211921 0 Fix 0.489404
+Main_RecrDev_98 0.316375 0 Fix 0.515819
+Main_RecrDev_99 -0.161205 0 Fix 0.49194
+Main_RecrDev_100 -0.252611 0 Fix 0.487369
+ForeRecr_101 -0.136214 0 Fix 0.493189
+#_F
+F_fleet_1_YR_26_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_27_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_28_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_29_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_30_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_31_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_32_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_33_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_34_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_35_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_36_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_37_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_38_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_39_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_40_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_41_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_42_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_43_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_44_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_45_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_46_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_47_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_48_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_49_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_50_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_51_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_52_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_53_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_54_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_55_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_56_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_57_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_58_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_59_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_60_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_61_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_62_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_63_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_64_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_65_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_66_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_67_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_68_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_69_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_70_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_71_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_72_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_73_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_74_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_75_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_76_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_77_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_78_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_79_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_80_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_81_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_82_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_83_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_84_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_85_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_86_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_87_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_88_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_89_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_90_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_91_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_92_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_93_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_94_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_95_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_96_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_97_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_98_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_99_s_1 0.12 0 Fix 0.03
+F_fleet_1_YR_100_s_1 0.12 0 Fix 0.03
+#_Catchability
+LnQ_base_Survey(2) 0 0 Fix 0.5
+#_Selectivity
+Size_DblN_peak_Fishery(1) 50.8 0 Fix 0.431111
+Size_DblN_top_logit_Fishery(1) -3 0 Fix 0.25
+Size_DblN_ascend_se_Fishery(1) 5.1 0 Fix 0.196154
+Size_DblN_descend_se_Fishery(1) 15 0 Fix 0.944444
+Size_DblN_start_logit_Fishery(1) -999 0 Fix -49.2
+Size_DblN_end_logit_Fishery(1) 999 0 Fix 0.999005
+Size_DblN_peak_Survey(2) 41.8 0 Fix 0.331111
+Size_DblN_top_logit_Survey(2) -4 0 Fix 0.125
+Size_DblN_ascend_se_Survey(2) 5.2 0 Fix 0.306667
+Size_DblN_descend_se_Survey(2) 14 0 Fix 0.888889
+Size_DblN_start_logit_Survey(2) -99 0 Fix 0.005
+Size_DblN_end_logit_Survey(2) 99 0 Fix 0.995
+minage@sel=1_Fishery(1) 0 0 Fix 0
+maxage@sel=1_Fishery(1) 25 0 Fix 0.247525
+minage@sel=1_Survey(2) 0 0 Fix 0
+maxage@sel=1_Survey(2) 25 0 Fix 0.247525
+#_Derived_Quantities
+#_Spawn_Bio
+SSB_Virgin 4.08418e+09 0
+SSB_Initial 4.08418e+09 0
+SSB_1 4.08418e+09 0
+SSB_2 4.08421e+09 0
+SSB_3 4.09887e+09 0
+SSB_4 4.13226e+09 0
+SSB_5 4.15382e+09 0
+SSB_6 4.1517e+09 0
+SSB_7 4.09604e+09 0
+SSB_8 3.99235e+09 0
+SSB_9 3.90198e+09 0
+SSB_10 3.8516e+09 0
+SSB_11 3.79004e+09 0
+SSB_12 3.70808e+09 0
+SSB_13 3.61585e+09 0
+SSB_14 3.53752e+09 0
+SSB_15 3.49901e+09 0
+SSB_16 3.52265e+09 0
+SSB_17 3.58431e+09 0
+SSB_18 3.6503e+09 0
+SSB_19 3.74279e+09 0
+SSB_20 3.78863e+09 0
+SSB_21 3.7974e+09 0
+SSB_22 3.79472e+09 0
+SSB_23 3.76302e+09 0
+SSB_24 3.73169e+09 0
+SSB_25 3.68503e+09 0
+SSB_26 3.64053e+09 0
+SSB_27 3.2347e+09 0
+SSB_28 2.9273e+09 0
+SSB_29 2.69281e+09 0
+SSB_30 2.49679e+09 0
+SSB_31 2.3226e+09 0
+SSB_32 2.17793e+09 0
+SSB_33 2.07443e+09 0
+SSB_34 1.98855e+09 0
+SSB_35 1.91633e+09 0
+SSB_36 1.87254e+09 0
+SSB_37 1.83532e+09 0
+SSB_38 1.80091e+09 0
+SSB_39 1.76244e+09 0
+SSB_40 1.72076e+09 0
+SSB_41 1.67505e+09 0
+SSB_42 1.67058e+09 0
+SSB_43 1.66977e+09 0
+SSB_44 1.64038e+09 0
+SSB_45 1.58639e+09 0
+SSB_46 1.5032e+09 0
+SSB_47 1.3913e+09 0
+SSB_48 1.27466e+09 0
+SSB_49 1.18026e+09 0
+SSB_50 1.11942e+09 0
+SSB_51 1.10573e+09 0
+SSB_52 1.12022e+09 0
+SSB_53 1.13425e+09 0
+SSB_54 1.15322e+09 0
+SSB_55 1.17942e+09 0
+SSB_56 1.22756e+09 0
+SSB_57 1.28208e+09 0
+SSB_58 1.32841e+09 0
+SSB_59 1.37657e+09 0
+SSB_60 1.42214e+09 0
+SSB_61 1.42826e+09 0
+SSB_62 1.40565e+09 0
+SSB_63 1.40219e+09 0
+SSB_64 1.41439e+09 0
+SSB_65 1.3993e+09 0
+SSB_66 1.37974e+09 0
+SSB_67 1.3829e+09 0
+SSB_68 1.41588e+09 0
+SSB_69 1.45271e+09 0
+SSB_70 1.4752e+09 0
+SSB_71 1.51258e+09 0
+SSB_72 1.51535e+09 0
+SSB_73 1.51256e+09 0
+SSB_74 1.52791e+09 0
+SSB_75 1.51375e+09 0
+SSB_76 1.4698e+09 0
+SSB_77 1.40156e+09 0
+SSB_78 1.3235e+09 0
+SSB_79 1.23878e+09 0
+SSB_80 1.18244e+09 0
+SSB_81 1.16236e+09 0
+SSB_82 1.15285e+09 0
+SSB_83 1.16117e+09 0
+SSB_84 1.15051e+09 0
+SSB_85 1.12856e+09 0
+SSB_86 1.12774e+09 0
+SSB_87 1.15886e+09 0
+SSB_88 1.16401e+09 0
+SSB_89 1.15738e+09 0
+SSB_90 1.1641e+09 0
+SSB_91 1.1822e+09 0
+SSB_92 1.18661e+09 0
+SSB_93 1.1751e+09 0
+SSB_94 1.1348e+09 0
+SSB_95 1.10149e+09 0
+SSB_96 1.08555e+09 0
+SSB_97 1.07913e+09 0
+SSB_98 1.09346e+09 0
+SSB_99 1.11609e+09 0
+SSB_100 1.14359e+09 0
+SSB_101 1.18109e+09 0
+#_Recruitment
+Recr_Virgin 1.32223e+08 0
+Recr_Initial 1.32223e+08 0
+Recr_1 1.80596e+08 0
+Recr_2 1.2206e+08 0
+Recr_3 1.26089e+08 0
+Recr_4 8.32696e+07 0
+Recr_5 5.20581e+07 0
+Recr_6 9.50289e+07 0
+Recr_7 1.91918e+08 0
+Recr_8 9.90014e+07 0
+Recr_9 7.08351e+07 0
+Recr_10 7.73473e+07 0
+Recr_11 9.94976e+07 0
+Recr_12 1.33757e+08 0
+Recr_13 1.54795e+08 0
+Recr_14 1.9977e+08 0
+Recr_15 7.48458e+07 0
+Recr_16 2.01154e+08 0
+Recr_17 1.01355e+08 0
+Recr_18 5.67717e+07 0
+Recr_19 1.54932e+08 0
+Recr_20 7.27874e+07 0
+Recr_21 1.30522e+08 0
+Recr_22 1.04327e+08 0
+Recr_23 8.26776e+07 0
+Recr_24 1.5697e+08 0
+Recr_25 1.6675e+08 0
+Recr_26 1.66136e+08 0
+Recr_27 1.35179e+08 0
+Recr_28 1.14374e+08 0
+Recr_29 1.12691e+08 0
+Recr_30 1.47454e+08 0
+Recr_31 1.47329e+08 0
+Recr_32 9.4087e+07 0
+Recr_33 1.66148e+08 0
+Recr_34 1.16842e+08 0
+Recr_35 1.41629e+08 0
+Recr_36 9.48298e+07 0
+Recr_37 1.42927e+08 0
+Recr_38 6.59142e+07 0
+Recr_39 1.66956e+08 0
+Recr_40 1.55816e+08 0
+Recr_41 8.4837e+07 0
+Recr_42 8.42607e+07 0
+Recr_43 7.19037e+07 0
+Recr_44 4.41578e+07 0
+Recr_45 3.83988e+07 0
+Recr_46 7.18009e+07 0
+Recr_47 7.9102e+07 0
+Recr_48 1.03111e+08 0
+Recr_49 1.31582e+08 0
+Recr_50 7.256e+07 0
+Recr_51 1.01526e+08 0
+Recr_52 8.9118e+07 0
+Recr_53 1.315e+08 0
+Recr_54 1.31637e+08 0
+Recr_55 1.10325e+08 0
+Recr_56 1.10616e+08 0
+Recr_57 1.48754e+08 0
+Recr_58 9.10832e+07 0
+Recr_59 5.81922e+07 0
+Recr_60 1.05125e+08 0
+Recr_61 1.63535e+08 0
+Recr_62 7.65908e+07 0
+Recr_63 7.15539e+07 0
+Recr_64 1.27025e+08 0
+Recr_65 1.31964e+08 0
+Recr_66 1.68172e+08 0
+Recr_67 6.00472e+07 0
+Recr_68 1.73241e+08 0
+Recr_69 1.00515e+08 0
+Recr_70 6.68384e+07 0
+Recr_71 1.78662e+08 0
+Recr_72 8.79853e+07 0
+Recr_73 7.84059e+07 0
+Recr_74 5.69404e+07 0
+Recr_75 7.25885e+07 0
+Recr_76 5.77915e+07 0
+Recr_77 5.90819e+07 0
+Recr_78 1.45768e+08 0
+Recr_79 5.73497e+07 0
+Recr_80 1.32117e+08 0
+Recr_81 5.85753e+07 0
+Recr_82 7.13628e+07 0
+Recr_83 6.17598e+07 0
+Recr_84 1.73307e+08 0
+Recr_85 6.24673e+07 0
+Recr_86 6.6306e+07 0
+Recr_87 8.60827e+07 0
+Recr_88 1.35386e+08 0
+Recr_89 6.79451e+07 0
+Recr_90 9.48073e+07 0
+Recr_91 3.60435e+07 0
+Recr_92 6.51727e+07 0
+Recr_93 1.04884e+08 0
+Recr_94 7.77971e+07 0
+Recr_95 9.93974e+07 0
+Recr_96 1.12177e+08 0
+Recr_97 7.78057e+07 0
+Recr_98 1.32606e+08 0
+Recr_99 8.28703e+07 0
+Recr_100 7.62969e+07 0
+Recr_101 8.66983e+07 0
+#_SPR Basis=  1-SPR
+SPRratio_26 0.576346 0
+SPRratio_27 0.576346 0
+SPRratio_28 0.576346 0
+SPRratio_29 0.576346 0
+SPRratio_30 0.576346 0
+SPRratio_31 0.576346 0
+SPRratio_32 0.576346 0
+SPRratio_33 0.576346 0
+SPRratio_34 0.576346 0
+SPRratio_35 0.576346 0
+SPRratio_36 0.576346 0
+SPRratio_37 0.576346 0
+SPRratio_38 0.576346 0
+SPRratio_39 0.576346 0
+SPRratio_40 0.576346 0
+SPRratio_41 0.576346 0
+SPRratio_42 0.576346 0
+SPRratio_43 0.576346 0
+SPRratio_44 0.576346 0
+SPRratio_45 0.576346 0
+SPRratio_46 0.576346 0
+SPRratio_47 0.576346 0
+SPRratio_48 0.576346 0
+SPRratio_49 0.576346 0
+SPRratio_50 0.576346 0
+SPRratio_51 0.576346 0
+SPRratio_52 0.576346 0
+SPRratio_53 0.576346 0
+SPRratio_54 0.576346 0
+SPRratio_55 0.576346 0
+SPRratio_56 0.576346 0
+SPRratio_57 0.576346 0
+SPRratio_58 0.576346 0
+SPRratio_59 0.576346 0
+SPRratio_60 0.576346 0
+SPRratio_61 0.576346 0
+SPRratio_62 0.576346 0
+SPRratio_63 0.576346 0
+SPRratio_64 0.576346 0
+SPRratio_65 0.576346 0
+SPRratio_66 0.576346 0
+SPRratio_67 0.576346 0
+SPRratio_68 0.576346 0
+SPRratio_69 0.576346 0
+SPRratio_70 0.576346 0
+SPRratio_71 0.576346 0
+SPRratio_72 0.576346 0
+SPRratio_73 0.576346 0
+SPRratio_74 0.576346 0
+SPRratio_75 0.576346 0
+SPRratio_76 0.576346 0
+SPRratio_77 0.576346 0
+SPRratio_78 0.576346 0
+SPRratio_79 0.576346 0
+SPRratio_80 0.576346 0
+SPRratio_81 0.576346 0
+SPRratio_82 0.576346 0
+SPRratio_83 0.576346 0
+SPRratio_84 0.576346 0
+SPRratio_85 0.576346 0
+SPRratio_86 0.576346 0
+SPRratio_87 0.576346 0
+SPRratio_88 0.576346 0
+SPRratio_89 0.576346 0
+SPRratio_90 0.576346 0
+SPRratio_91 0.576346 0
+SPRratio_92 0.576346 0
+SPRratio_93 0.576346 0
+SPRratio_94 0.576346 0
+SPRratio_95 0.576346 0
+SPRratio_96 0.576346 0
+SPRratio_97 0.576346 0
+SPRratio_98 0.576346 0
+SPRratio_99 0.576346 0
+SPRratio_100 0.576346 0
+SPRratio_101 1.11022e-16 0
+#_F Basis= _abs_F;_with_F=Exploit(bio)
+F_26 0.112165 0
+F_27 0.112955 0
+F_28 0.113972 0
+F_29 0.114665 0
+F_30 0.114912 0
+F_31 0.114952 0
+F_32 0.115515 0
+F_33 0.116365 0
+F_34 0.116199 0
+F_35 0.117006 0
+F_36 0.117216 0
+F_37 0.117651 0
+F_38 0.117229 0
+F_39 0.117632 0
+F_40 0.116707 0
+F_41 0.117395 0
+F_42 0.118554 0
+F_43 0.118174 0
+F_44 0.117393 0
+F_45 0.11659 0
+F_46 0.11545 0
+F_47 0.114241 0
+F_48 0.114137 0
+F_49 0.114771 0
+F_50 0.116195 0
+F_51 0.118601 0
+F_52 0.118894 0
+F_53 0.119149 0
+F_54 0.118897 0
+F_55 0.119571 0
+F_56 0.120349 0
+F_57 0.12027 0
+F_58 0.119757 0
+F_59 0.120222 0
+F_60 0.119654 0
+F_61 0.118008 0
+F_62 0.117323 0
+F_63 0.11873 0
+F_64 0.118546 0
+F_65 0.11752 0
+F_66 0.11779 0
+F_67 0.118459 0
+F_68 0.120068 0
+F_69 0.118863 0
+F_70 0.119548 0
+F_71 0.119346 0
+F_72 0.1178 0
+F_73 0.118775 0
+F_74 0.118578 0
+F_75 0.117784 0
+F_76 0.116591 0
+F_77 0.115957 0
+F_78 0.115418 0
+F_79 0.114836 0
+F_80 0.11705 0
+F_81 0.117222 0
+F_82 0.118743 0
+F_83 0.118446 0
+F_84 0.117887 0
+F_85 0.11684 0
+F_86 0.119329 0
+F_87 0.119334 0
+F_88 0.118371 0
+F_89 0.117825 0
+F_90 0.119098 0
+F_91 0.118743 0
+F_92 0.118754 0
+F_93 0.11735 0
+F_94 0.116409 0
+F_95 0.117205 0
+F_96 0.117593 0
+F_97 0.118247 0
+F_98 0.119315 0
+F_99 0.119005 0
+F_100 0.119908 0
+F_101 0 0
+#_Depletion Basis=  100%*Virgin_Biomass
+Bratio_27 0.792006 0
+Bratio_28 0.71674 0
+Bratio_29 0.659327 0
+Bratio_30 0.61133 0
+Bratio_31 0.568682 0
+Bratio_32 0.533259 0
+Bratio_33 0.507919 0
+Bratio_34 0.486889 0
+Bratio_35 0.469207 0
+Bratio_36 0.458485 0
+Bratio_37 0.449372 0
+Bratio_38 0.440946 0
+Bratio_39 0.431529 0
+Bratio_40 0.421323 0
+Bratio_41 0.41013 0
+Bratio_42 0.409037 0
+Bratio_43 0.408838 0
+Bratio_44 0.401643 0
+Bratio_45 0.388423 0
+Bratio_46 0.368054 0
+Bratio_47 0.340656 0
+Bratio_48 0.312098 0
+Bratio_49 0.288983 0
+Bratio_50 0.274086 0
+Bratio_51 0.270735 0
+Bratio_52 0.274282 0
+Bratio_53 0.277717 0
+Bratio_54 0.282362 0
+Bratio_55 0.288777 0
+Bratio_56 0.300563 0
+Bratio_57 0.313913 0
+Bratio_58 0.325257 0
+Bratio_59 0.337048 0
+Bratio_60 0.348207 0
+Bratio_61 0.349704 0
+Bratio_62 0.344169 0
+Bratio_63 0.343323 0
+Bratio_64 0.346308 0
+Bratio_65 0.342615 0
+Bratio_66 0.337826 0
+Bratio_67 0.338598 0
+Bratio_68 0.346674 0
+Bratio_69 0.355692 0
+Bratio_70 0.361197 0
+Bratio_71 0.37035 0
+Bratio_72 0.371028 0
+Bratio_73 0.370346 0
+Bratio_74 0.374103 0
+Bratio_75 0.370638 0
+Bratio_76 0.359876 0
+Bratio_77 0.343167 0
+Bratio_78 0.324055 0
+Bratio_79 0.303311 0
+Bratio_80 0.289516 0
+Bratio_81 0.284599 0
+Bratio_82 0.282271 0
+Bratio_83 0.284308 0
+Bratio_84 0.281698 0
+Bratio_85 0.276326 0
+Bratio_86 0.276124 0
+Bratio_87 0.283743 0
+Bratio_88 0.285005 0
+Bratio_89 0.28338 0
+Bratio_90 0.285026 0
+Bratio_91 0.289458 0
+Bratio_92 0.290538 0
+Bratio_93 0.28772 0
+Bratio_94 0.277852 0
+Bratio_95 0.269696 0
+Bratio_96 0.265792 0
+Bratio_97 0.264222 0
+Bratio_98 0.267731 0
+Bratio_99 0.273271 0
+Bratio_100 0.280004 0
+Bratio_101 0.289187 0
+#_Mgmt_Quantity
+SSB_unfished 4.08418e+09 0
+Totbio_unfished 4.11441e+09 0
+SmryBio_unfished 4.11301e+09 0
+Recr_unfished 1.32223e+08 0
+SSB_Btgt 1.63367e+09 0
+SPR_Btgt 0.480769 0
+annF_Btgt 0.0979971 0
+Dead_Catch_Btgt 1.62416e+08 0
+SSB_SPR 1.25248e+09 0
+annF_SPR 0.127929 0
+Dead_Catch_SPR 1.63009e+08 0
+SSB_MSY 1.41798e+09 0
+SPR_MSY 0.435066 0
+annF_MSY 0.113958 0
+Dead_Catch_MSY 1.64172e+08 0
+Ret_Catch_MSY 1.64172e+08 0
+B_MSY/SSB_unfished 0.347187 0
+ForeCatch_101 0 0
+OFLCatch_101 1.43471e+08 0
+#_Extra_stdev
+ln(SPB)_1 22.1304 0
+ln(SPB)_50 20.8361 0
+ln(SPB)_100 20.8574 0
+SmryBio_Virgin 4.11301e+09 0.0
+SmryBio_Initial 4.11301e+09 0.0
+SmryBio_1 4.11301e+09 0.0
+SmryBio_2 4.11602e+09 0.0
+SmryBio_3 4.13403e+09 0.0
+SmryBio_4 4.1598e+09 0.0
+SmryBio_5 4.17866e+09 0.0
+SmryBio_6 4.16846e+09 0.0
+SmryBio_7 4.11046e+09 0.0
+SmryBio_8 4.01854e+09 0.0
+SmryBio_9 3.93686e+09 0.0
+SmryBio_10 3.87249e+09 0.0
+SmryBio_11 3.8063e+09 0.0
+SmryBio_12 3.72626e+09 0.0
+SmryBio_13 3.63938e+09 0.0
+SmryBio_14 3.56753e+09 0.0
+SmryBio_15 3.53524e+09 0.0
+SmryBio_16 3.55792e+09 0.0
+SmryBio_17 3.60991e+09 0.0
+SmryBio_18 3.68654e+09 0.0
+SmryBio_19 3.76326e+09 0.0
+SmryBio_20 3.80768e+09 0.0
+SmryBio_21 3.82494e+09 0.0
+SmryBio_22 3.81508e+09 0.0
+SmryBio_23 3.78921e+09 0.0
+SmryBio_24 3.75338e+09 0.0
+SmryBio_25 3.70792e+09 0.0
+SmryBio_26 3.67445e+09 0.0
+SmryBio_27 3.27034e+09 0.0
+SmryBio_28 2.96105e+09 0.0
+SmryBio_29 2.72088e+09 0.0
+SmryBio_30 2.52148e+09 0.0
+SmryBio_31 2.34898e+09 0.0
+SmryBio_32 2.2092e+09 0.0
+SmryBio_33 2.10276e+09 0.0
+SmryBio_34 2.01376e+09 0.0
+SmryBio_35 1.94821e+09 0.0
+SmryBio_36 1.89964e+09 0.0
+SmryBio_37 1.86259e+09 0.0
+SmryBio_38 1.82472e+09 0.0
+SmryBio_39 1.78789e+09 0.0
+SmryBio_40 1.74195e+09 0.0
+SmryBio_41 1.70916e+09 0.0
+SmryBio_42 1.69971e+09 0.0
+SmryBio_43 1.68871e+09 0.0
+SmryBio_44 1.65776e+09 0.0
+SmryBio_45 1.60026e+09 0.0
+SmryBio_46 1.51263e+09 0.0
+SmryBio_47 1.40169e+09 0.0
+SmryBio_48 1.29017e+09 0.0
+SmryBio_49 1.19862e+09 0.0
+SmryBio_50 1.14304e+09 0.0
+SmryBio_51 1.13002e+09 0.0
+SmryBio_52 1.1382e+09 0.0
+SmryBio_53 1.155e+09 0.0
+SmryBio_54 1.17508e+09 0.0
+SmryBio_55 1.20721e+09 0.0
+SmryBio_56 1.25447e+09 0.0
+SmryBio_57 1.30601e+09 0.0
+SmryBio_58 1.35452e+09 0.0
+SmryBio_59 1.40453e+09 0.0
+SmryBio_60 1.44026e+09 0.0
+SmryBio_61 1.44404e+09 0.0
+SmryBio_62 1.43134e+09 0.0
+SmryBio_63 1.43128e+09 0.0
+SmryBio_64 1.43141e+09 0.0
+SmryBio_65 1.41819e+09 0.0
+SmryBio_66 1.40673e+09 0.0
+SmryBio_67 1.41337e+09 0.0
+SmryBio_68 1.44491e+09 0.0
+SmryBio_69 1.47373e+09 0.0
+SmryBio_70 1.50675e+09 0.0
+SmryBio_71 1.53279e+09 0.0
+SmryBio_72 1.537e+09 0.0
+SmryBio_73 1.54414e+09 0.0
+SmryBio_74 1.54711e+09 0.0
+SmryBio_75 1.52942e+09 0.0
+SmryBio_76 1.48323e+09 0.0
+SmryBio_77 1.41607e+09 0.0
+SmryBio_78 1.33614e+09 0.0
+SmryBio_79 1.25681e+09 0.0
+SmryBio_80 1.20734e+09 0.0
+SmryBio_81 1.18018e+09 0.0
+SmryBio_82 1.17592e+09 0.0
+SmryBio_83 1.17528e+09 0.0
+SmryBio_84 1.16514e+09 0.0
+SmryBio_85 1.1488e+09 0.0
+SmryBio_86 1.15691e+09 0.0
+SmryBio_87 1.17363e+09 0.0
+SmryBio_88 1.17949e+09 0.0
+SmryBio_89 1.17869e+09 0.0
+SmryBio_90 1.18846e+09 0.0
+SmryBio_91 1.19914e+09 0.0
+SmryBio_92 1.20309e+09 0.0
+SmryBio_93 1.18526e+09 0.0
+SmryBio_94 1.15096e+09 0.0
+SmryBio_95 1.12189e+09 0.0
+SmryBio_96 1.10384e+09 0.0
+SmryBio_97 1.10104e+09 0.0
+SmryBio_98 1.11527e+09 0.0
+SmryBio_99 1.13653e+09 0.0
+SmryBio_100 1.16842e+09 0.0
+SmryBio_101 1.19898e+09 0.0
+#_survey_stdev 0
+#_Biomass
+TotBio_Virgin 4.11441e+09 0.0
+TotBio_Initial 4.11441e+09 0.0
+TotBio_1 4.11492e+09 0.0
+TotBio_2 4.11731e+09 0.0
+TotBio_3 4.13536e+09 0.0
+TotBio_4 4.16068e+09 0.0
+TotBio_5 4.17922e+09 0.0
+TotBio_6 4.16946e+09 0.0
+TotBio_7 4.1125e+09 0.0
+TotBio_8 4.01959e+09 0.0
+TotBio_9 3.93761e+09 0.0
+TotBio_10 3.87331e+09 0.0
+TotBio_11 3.80735e+09 0.0
+TotBio_12 3.72768e+09 0.0
+TotBio_13 3.64102e+09 0.0
+TotBio_14 3.56965e+09 0.0
+TotBio_15 3.53604e+09 0.0
+TotBio_16 3.56005e+09 0.0
+TotBio_17 3.61098e+09 0.0
+TotBio_18 3.68714e+09 0.0
+TotBio_19 3.7649e+09 0.0
+TotBio_20 3.80846e+09 0.0
+TotBio_21 3.82632e+09 0.0
+TotBio_22 3.81618e+09 0.0
+TotBio_23 3.79009e+09 0.0
+TotBio_24 3.75504e+09 0.0
+TotBio_25 3.70969e+09 0.0
+TotBio_26 3.67621e+09 0.0
+TotBio_27 3.27177e+09 0.0
+TotBio_28 2.96227e+09 0.0
+TotBio_29 2.72208e+09 0.0
+TotBio_30 2.52304e+09 0.0
+TotBio_31 2.35054e+09 0.0
+TotBio_32 2.2102e+09 0.0
+TotBio_33 2.10452e+09 0.0
+TotBio_34 2.015e+09 0.0
+TotBio_35 1.94971e+09 0.0
+TotBio_36 1.90064e+09 0.0
+TotBio_37 1.86411e+09 0.0
+TotBio_38 1.82542e+09 0.0
+TotBio_39 1.78965e+09 0.0
+TotBio_40 1.7436e+09 0.0
+TotBio_41 1.71006e+09 0.0
+TotBio_42 1.7006e+09 0.0
+TotBio_43 1.68947e+09 0.0
+TotBio_44 1.65823e+09 0.0
+TotBio_45 1.60066e+09 0.0
+TotBio_46 1.5134e+09 0.0
+TotBio_47 1.40253e+09 0.0
+TotBio_48 1.29127e+09 0.0
+TotBio_49 1.20002e+09 0.0
+TotBio_50 1.14381e+09 0.0
+TotBio_51 1.13109e+09 0.0
+TotBio_52 1.13914e+09 0.0
+TotBio_53 1.1564e+09 0.0
+TotBio_54 1.17648e+09 0.0
+TotBio_55 1.20838e+09 0.0
+TotBio_56 1.25564e+09 0.0
+TotBio_57 1.30759e+09 0.0
+TotBio_58 1.35549e+09 0.0
+TotBio_59 1.40515e+09 0.0
+TotBio_60 1.44138e+09 0.0
+TotBio_61 1.44577e+09 0.0
+TotBio_62 1.43215e+09 0.0
+TotBio_63 1.43204e+09 0.0
+TotBio_64 1.43276e+09 0.0
+TotBio_65 1.41959e+09 0.0
+TotBio_66 1.40851e+09 0.0
+TotBio_67 1.41401e+09 0.0
+TotBio_68 1.44675e+09 0.0
+TotBio_69 1.47479e+09 0.0
+TotBio_70 1.50746e+09 0.0
+TotBio_71 1.53469e+09 0.0
+TotBio_72 1.53794e+09 0.0
+TotBio_73 1.54497e+09 0.0
+TotBio_74 1.54771e+09 0.0
+TotBio_75 1.53019e+09 0.0
+TotBio_76 1.48385e+09 0.0
+TotBio_77 1.4167e+09 0.0
+TotBio_78 1.33768e+09 0.0
+TotBio_79 1.25741e+09 0.0
+TotBio_80 1.20874e+09 0.0
+TotBio_81 1.1808e+09 0.0
+TotBio_82 1.17668e+09 0.0
+TotBio_83 1.17593e+09 0.0
+TotBio_84 1.16698e+09 0.0
+TotBio_85 1.14947e+09 0.0
+TotBio_86 1.15761e+09 0.0
+TotBio_87 1.17454e+09 0.0
+TotBio_88 1.18093e+09 0.0
+TotBio_89 1.17941e+09 0.0
+TotBio_90 1.18946e+09 0.0
+TotBio_91 1.19952e+09 0.0
+TotBio_92 1.20378e+09 0.0
+TotBio_93 1.18637e+09 0.0
+TotBio_94 1.15179e+09 0.0
+TotBio_95 1.12294e+09 0.0
+TotBio_96 1.10503e+09 0.0
+TotBio_97 1.10187e+09 0.0
+TotBio_98 1.11668e+09 0.0
+TotBio_99 1.13741e+09 0.0
+TotBio_100 1.16923e+09 0.0
+TotBio_101 1.1999e+09 0.0
+TotCatch_Virgin 0 0.0
+TotCatch_Initial 0 0.0
+TotCatch_1 0 0.0
+TotCatch_2 0 0.0
+TotCatch_3 0 0.0
+TotCatch_4 0 0.0
+TotCatch_5 0 0.0
+TotCatch_6 0 0.0
+TotCatch_7 0 0.0
+TotCatch_8 0 0.0
+TotCatch_9 0 0.0
+TotCatch_10 0 0.0
+TotCatch_11 0 0.0
+TotCatch_12 0 0.0
+TotCatch_13 0 0.0
+TotCatch_14 0 0.0
+TotCatch_15 0 0.0
+TotCatch_16 0 0.0
+TotCatch_17 0 0.0
+TotCatch_18 0 0.0
+TotCatch_19 0 0.0
+TotCatch_20 0 0.0
+TotCatch_21 0 0.0
+TotCatch_22 0 0.0
+TotCatch_23 0 0.0
+TotCatch_24 0 0.0
+TotCatch_25 0 0.0
+TotCatch_26 4.12146e+08 0.0
+TotCatch_27 3.69402e+08 0.0
+TotCatch_28 3.37477e+08 0.0
+TotCatch_29 3.1199e+08 0.0
+TotCatch_30 2.89748e+08 0.0
+TotCatch_31 2.70021e+08 0.0
+TotCatch_32 2.55196e+08 0.0
+TotCatch_33 2.44687e+08 0.0
+TotCatch_34 2.33997e+08 0.0
+TotCatch_35 2.27952e+08 0.0
+TotCatch_36 2.22668e+08 0.0
+TotCatch_37 2.19137e+08 0.0
+TotCatch_38 2.1391e+08 0.0
+TotCatch_39 2.10313e+08 0.0
+TotCatch_40 2.03297e+08 0.0
+TotCatch_41 2.00648e+08 0.0
+TotCatch_42 2.01508e+08 0.0
+TotCatch_43 1.99562e+08 0.0
+TotCatch_44 1.9461e+08 0.0
+TotCatch_45 1.86574e+08 0.0
+TotCatch_46 1.74634e+08 0.0
+TotCatch_47 1.6013e+08 0.0
+TotCatch_48 1.47256e+08 0.0
+TotCatch_49 1.37567e+08 0.0
+TotCatch_50 1.32816e+08 0.0
+TotCatch_51 1.34021e+08 0.0
+TotCatch_52 1.35325e+08 0.0
+TotCatch_53 1.37617e+08 0.0
+TotCatch_54 1.39714e+08 0.0
+TotCatch_55 1.44347e+08 0.0
+TotCatch_56 1.50974e+08 0.0
+TotCatch_57 1.57074e+08 0.0
+TotCatch_58 1.62214e+08 0.0
+TotCatch_59 1.68856e+08 0.0
+TotCatch_60 1.72334e+08 0.0
+TotCatch_61 1.70408e+08 0.0
+TotCatch_62 1.6793e+08 0.0
+TotCatch_63 1.69935e+08 0.0
+TotCatch_64 1.69688e+08 0.0
+TotCatch_65 1.66667e+08 0.0
+TotCatch_66 1.65698e+08 0.0
+TotCatch_67 1.67426e+08 0.0
+TotCatch_68 1.73487e+08 0.0
+TotCatch_69 1.75172e+08 0.0
+TotCatch_70 1.80129e+08 0.0
+TotCatch_71 1.82933e+08 0.0
+TotCatch_72 1.81059e+08 0.0
+TotCatch_73 1.83405e+08 0.0
+TotCatch_74 1.83454e+08 0.0
+TotCatch_75 1.8014e+08 0.0
+TotCatch_76 1.72931e+08 0.0
+TotCatch_77 1.64203e+08 0.0
+TotCatch_78 1.54214e+08 0.0
+TotCatch_79 1.44326e+08 0.0
+TotCatch_80 1.41319e+08 0.0
+TotCatch_81 1.38343e+08 0.0
+TotCatch_82 1.39633e+08 0.0
+TotCatch_83 1.39208e+08 0.0
+TotCatch_84 1.37355e+08 0.0
+TotCatch_85 1.34227e+08 0.0
+TotCatch_86 1.38053e+08 0.0
+TotCatch_87 1.40054e+08 0.0
+TotCatch_88 1.39617e+08 0.0
+TotCatch_89 1.38879e+08 0.0
+TotCatch_90 1.41542e+08 0.0
+TotCatch_91 1.4239e+08 0.0
+TotCatch_92 1.42872e+08 0.0
+TotCatch_93 1.3909e+08 0.0
+TotCatch_94 1.33982e+08 0.0
+TotCatch_95 1.31492e+08 0.0
+TotCatch_96 1.29804e+08 0.0
+TotCatch_97 1.30195e+08 0.0
+TotCatch_98 1.33069e+08 0.0
+TotCatch_99 1.35253e+08 0.0
+TotCatch_100 1.40102e+08 0.0
+TotCatch_101 0 0.0

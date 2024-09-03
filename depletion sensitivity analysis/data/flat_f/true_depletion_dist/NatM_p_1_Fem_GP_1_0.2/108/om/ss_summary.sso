@@ -1,0 +1,149 @@
+#V3.30.22.1;_safe;_compile_date:_Jan 30 2024;_Stock_Synthesis_by_Richard_Methot_(NOAA)_using_ADMB_13.1
+ss3.dat #_DataFile 
+om.ctl #_Control 
+Run_Date: Tue Jun 25 10:48:29 2024
+Final_phase: 1  N_iterations: 2
+#_LIKELIHOOD 
+Label logL*Lambda
+TOTAL_LogL 5.3322e+08
+Catch 5.32935e+08
+Survey 284796
+Length_comp 235.857
+Age_comp 267.222
+Recruitment 61.5391
+InitEQ_regime 0
+Sum_recdevs -14.8574
+Forecast_Recruitment 0.199193
+Parm_priors 0
+Parm_softbounds 0.000763113
+Parm_devs 0
+F_Ballpark 0
+Crash_Pen 0
+#_PARAMETERS
+#label value se active? range
+#_BIOLOGY
+NatM_uniform_Fem_GP_1 0.2 0 Fix 0.106145
+L_at_Amin_Fem_GP_1 20 0 Fix 0.191919
+L_at_Amax_Fem_GP_1 132 0 Fix 0.191919
+VonBert_K_Fem_GP_1 0.2 0 Fix 0.199199
+CV_young_Fem_GP_1 0.1 0 Fix 0.198396
+CV_old_Fem_GP_1 0.1 0 Fix 0.198396
+Wtlen_1_Fem_GP_1 6.8e-06 0 Fix 2.26667e-06
+Wtlen_2_Fem_GP_1 3.101 0 Fix 0.600999
+Mat50%_Fem_GP_1 38.18 0 Fix 0.7045
+Mat_slope_Fem_GP_1 -0.276 0 Fix 0.431
+Eggs/kg_inter_Fem_GP_1 1 0 Fix 0.666667
+Eggs/kg_slope_wt_Fem_GP_1 0 0 Fix 0.428571
+RecrDist_GP_1 0 0 Fix 0.5
+RecrDist_Area_1 0 0 Fix 0.5
+RecrDist_month_1 0 0 Fix 0.5
+CohortGrowDev 1 0 Fix 0.625
+Catch_Mult:_1_Fishery 1 0 Fix 0.285714
+FracFemale_GP_1 0.5 0 Fix 0.499999
+#_SPAWN_RECR
+SR_LN(R0) 18.7 0 Fix 0.91875
+SR_BH_steep 0.65 0 Fix 0.562499
+SR_sigmaR 0.4 0 Fix 0.2
+SR_regime 0 0 Fix 0.5
+SR_autocorr 0 0 Fix 0
+Main_RecrDev_1 0.157172 0 Fix 0.507859
+Main_RecrDev_2 -0.0965197 0 Fix 0.495174
+Main_RecrDev_3 -0.357735 0 Fix 0.482113
+Main_RecrDev_4 -0.0803779 0 Fix 0.495981
+Main_RecrDev_5 0.173964 0 Fix 0.508698
+Main_RecrDev_6 -0.727779 0 Fix 0.463611
+Main_RecrDev_7 0.463864 0 Fix 0.523193
+Main_RecrDev_8 -0.529285 0 Fix 0.473536
+Main_RecrDev_9 -0.0500291 0 Fix 0.497499
+Main_RecrDev_10 -0.184876 0 Fix 0.490756
+Main_RecrDev_11 -0.330512 0 Fix 0.483474
+Main_RecrDev_12 0.500534 0 Fix 0.525027
+Main_RecrDev_13 -0.812369 0 Fix 0.459382
+Main_RecrDev_14 0.217778 0 Fix 0.510889
+Main_RecrDev_15 -0.610927 0 Fix 0.469454
+Main_RecrDev_16 -0.331349 0 Fix 0.483433
+Main_RecrDev_17 -0.196682 0 Fix 0.490166
+Main_RecrDev_18 0.314529 0 Fix 0.515726
+Main_RecrDev_19 -0.317809 0 Fix 0.48411
+Main_RecrDev_20 0.585395 0 Fix 0.52927
+Main_RecrDev_21 -0.463901 0 Fix 0.476805
+Main_RecrDev_22 -0.27792 0 Fix 0.486104
+Main_RecrDev_23 -0.842367 0 Fix 0.457882
+Main_RecrDev_24 0.0626309 0 Fix 0.503132
+Main_RecrDev_25 0.288892 0 Fix 0.514445
+Main_RecrDev_26 -0.154741 0 Fix 0.492263
+Main_RecrDev_27 -0.242648 0 Fix 0.487868
+Main_RecrDev_28 0.0117221 0 Fix 0.500586
+Main_RecrDev_29 0.305091 0 Fix 0.515255
+Main_RecrDev_30 0.28884 0 Fix 0.514442
+Main_RecrDev_31 0.799529 0 Fix 0.539976
+Main_RecrDev_32 -0.106511 0 Fix 0.494674
+Main_RecrDev_33 0.415783 0 Fix 0.520789
+Main_RecrDev_34 -0.106262 0 Fix 0.494687
+Main_RecrDev_35 0.375883 0 Fix 0.518794
+Main_RecrDev_36 -0.209057 0 Fix 0.489547
+Main_RecrDev_37 -0.0953165 0 Fix 0.495234
+Main_RecrDev_38 0.969618 0 Fix 0.548481
+Main_RecrDev_39 -0.200855 0 Fix 0.489957
+Main_RecrDev_40 -0.133594 0 Fix 0.49332
+Main_RecrDev_41 0.442651 0 Fix 0.522133
+Main_RecrDev_42 0.194416 0 Fix 0.509721
+Main_RecrDev_43 0.0741572 0 Fix 0.503708
+Main_RecrDev_44 -0.632509 0 Fix 0.468375
+Main_RecrDev_45 -0.610364 0 Fix 0.469482
+Main_RecrDev_46 -0.881143 0 Fix 0.455943
+Main_RecrDev_47 -0.51424 0 Fix 0.474288
+Main_RecrDev_48 -0.603405 0 Fix 0.46983
+Main_RecrDev_49 0.0802316 0 Fix 0.504012
+Main_RecrDev_50 -0.413874 0 Fix 0.479306
+Main_RecrDev_51 0.14556 0 Fix 0.507278
+Main_RecrDev_52 -0.696057 0 Fix 0.465197
+Main_RecrDev_53 -0.504332 0 Fix 0.474783
+Main_RecrDev_54 -0.513173 0 Fix 0.474341
+Main_RecrDev_55 -0.521866 0 Fix 0.473907
+Main_RecrDev_56 -0.387678 0 Fix 0.480616
+Main_RecrDev_57 0.0886995 0 Fix 0.504435
+Main_RecrDev_58 -0.0119301 0 Fix 0.499403
+Main_RecrDev_59 0.0474172 0 Fix 0.502371
+Main_RecrDev_60 -0.525444 0 Fix 0.473728
+Main_RecrDev_61 0.0193543 0 Fix 0.500968
+Main_RecrDev_62 -0.624592 0 Fix 0.46877
+Main_RecrDev_63 -0.411155 0 Fix 0.479442
+Main_RecrDev_64 -0.442343 0 Fix 0.477883
+Main_RecrDev_65 0.211806 0 Fix 0.51059
+Main_RecrDev_66 0.06905 0 Fix 0.503452
+Main_RecrDev_67 0.453463 0 Fix 0.522673
+Main_RecrDev_68 0.189498 0 Fix 0.509475
+Main_RecrDev_69 -0.251094 0 Fix 0.487445
+Main_RecrDev_70 -0.400708 0 Fix 0.479965
+Main_RecrDev_71 0.792078 0 Fix 0.539604
+Main_RecrDev_72 -0.424768 0 Fix 0.478762
+Main_RecrDev_73 0.482539 0 Fix 0.524127
+Main_RecrDev_74 -0.484481 0 Fix 0.475776
+Main_RecrDev_75 0.582674 0 Fix 0.529134
+Main_RecrDev_76 -0.193985 0 Fix 0.490301
+Main_RecrDev_77 -0.436972 0 Fix 0.478151
+Main_RecrDev_78 -0.265786 0 Fix 0.486711
+Main_RecrDev_79 -0.304379 0 Fix 0.484781
+Main_RecrDev_80 -0.389344 0 Fix 0.480533
+Main_RecrDev_81 0.651843 0 Fix 0.532592
+Main_RecrDev_82 -0.0562609 0 Fix 0.497187
+Main_RecrDev_83 -0.768733 0 Fix 0.461563
+Main_RecrDev_84 -0.839904 0 Fix 0.458005
+Main_RecrDev_85 0.409047 0 Fix 0.520452
+Main_RecrDev_86 -0.260286 0 Fix 0.486986
+Main_RecrDev_87 0.0931099 0 Fix 0.504655
+Main_RecrDev_88 -0.98294 0 Fix 0.450853
+Main_RecrDev_89 -0.408744 0 Fix 0.479563
+Main_RecrDev_90 -0.448936 0 Fix 0.477553
+Main_RecrDev_91 -0.534715 0 Fix 0.473264
+Main_RecrDev_92 -0.650172 0 Fix 0.467491
+Main_RecrDev_93 -0.737785 0 Fix 0.463111
+Main_RecrDev_94 -0.461531 0 Fix 0.476923
+Main_RecrDev_95 -0.397535 0 Fix 0.480123
+Main_RecrDev_96 -0.32446 0 Fix 0.483777
+Main_RecrDev_97 -0.310889 0 Fix 0.484456
+Main_RecrDev_98 -0.0595746 0 Fix 0.497021
+Main_RecrDev_99 0.169405 0 Fix 0.50847
+Main_RecrDev_100 -0.0905466 0 Fix 0.495473
+ForeRecr_101 0.252471 0 Fix 0.512624

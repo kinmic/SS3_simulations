@@ -1,0 +1,156 @@
+---
+title: "Depletion sensitivity analysis"
+author: "M.Kinneen"
+date: "2024-06-24"
+output: html_document
+---
+Load libraries and scripts required
+```{r setup, include=FALSE}
+library(dplyr)
+library(ss3sim)
+library(r4ss)
+
+
+#Depletion sensitviity function
+source("depletion_sensitivity_function.r")
+
+```
+
+## True dpeletion estimates for each pattern
+
+```{r}
+  dir_list <- list(file.path(getwd(),"data/flat_f"),
+                 file.path(getwd(),"data/linear_f"),
+                 file.path(getwd(),"data/two_way_f"))
+
+
+for(d in dir_list){
+  path <- file.path(d,"true_depletion_dist")
+  ifelse(dir.exists(path),"path_exists",dir.create(path))
+  pattern <- which(d == dir_list)
+  
+  setwd(path)
+  
+   depletion_estimation_function(
+                                seq =0.2, par_name = "NatM_p_1_Fem_GP_1",cores = 15,its = 1000,
+                                fishing_pattern = pattern,parallel = TRUE,parallel_iterations = TRUE)
+   
+}
+
+
+
+```
+
+
+
+
+
+
+
+## Run depletion analysis for paramaters
+
+```{r, echo = FALSE}
+#list of directories to write to 
+dir_list <- c(file.path(getwd(),"data/flat_f"),
+                 file.path(getwd(),"data/linear_f"),
+                 file.path(getwd(),"data/two_way_f"))
+
+#Set up paramter ranges for each par of interest
+# par_seqs <- list("NatM_p_1_Fem_GP_1" = seq(0.28,0.31,0.001),
+#                  "SR_BH_steep" = seq(0.82,0.87,0.001),
+#                  "Catch_Mult:_1" = seq(1.1,1.2,0.001))
+par_seqs <- list("NatM_p_1_Fem_GP_1" = seq(0.28,0.31,length.out = 5),
+                 "SR_BH_steep" = seq(0.82,0.87,length.out = 5),
+                 "Catch_Mult_1" = seq(1.1,1.2,length.out = 5))
+	
+for(d in dir_list){
+  path <- file.path(d,"depletion_sensitivites")
+  ifelse(dir.exists(path),"path_exists",dir.create(path))
+  pattern <- which(d == dir_list)
+  
+  #set the directory for the outputs
+  setwd(path)
+
+  #loop over different paramters
+  for(p in 1:length(par_seqs)){
+
+
+    
+    depletion_estimation_function(seq = par_seqs[p],par_name = names(par_seqs[p]),cores = 5,its = 5,
+                              fishing_pattern = pattern,parallel = TRUE,parallel_iterations = FALSE)
+  }
+
+}
+
+
+
+
+
+
+
+```
+
+## TV om depletion
+
+This chunk has to be run seperately as it creates and uses different OM's
+
+```{r pressure, echo=FALSE}
+dir <- file.path(getwd(),"Models/tv_om_all")
+
+m_final_seq <- seq(0.1,0.2,0.001)
+
+
+## Now set up a sim df
+file_dirs <- paste0(dir,"/codOM_",m_final_seq)
+
+tv_df_om <- do.call("rbind",replicate(length(m_final_seq), sim_df[1,], simplify = F))
+
+tv_df_om$om_dir <- file_dirs
+tv_df_om[,c("ce.par_name","ce.par_int","ce.par_phase")] <- NULL
+tv_df_om$scenarios <- paste0("OM_tv_final_",m_final_seq)
+
+
+
+
+######## Running sims
+for(d in dir_list){
+  path <- file.path(d,"depletion_sensitivites/tv_OM")
+  ifelse(dir.exists(path),"path_exists",dir.create(path))
+  pattern <- which(d == dir_list)
+  
+  #set the directory for the outputs
+  setwd(path)
+  
+  #set the fishing pattern
+  tv_df_om$cf.fvals.1 <- pattern
+  
+cl <- makeCluster(20)
+registerDoParallel(cl)
+
+
+run_ss3sim(iterations = 1:100,simdf = tv_df_om,parallel = TRUE, parallel_iterations = TRUE)
+parSapply(cl,
+          X = tv_df_om$scenarios,
+          FUN = get_results_scenario,
+          overwrite_files = TRUE
+)
+get_results_all()
+stopCluster(cl)
+}
+
+```
+
+
+## Create export table of parameters values.
+
+```{r}
+# create a directory of output dfirs
+
+#combina all the dfs
+for(i in dir_list){
+  get_results_all(directory = file.path(i,"depletion_sensitivites"),
+                  overwrite_files = TRUE)
+
+}
+```
+

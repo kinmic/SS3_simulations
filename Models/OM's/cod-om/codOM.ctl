@@ -94,7 +94,7 @@
 #  Platoon StDev Ratio 
 #  Age Error from parameters
 #  catch multiplier
- 0.2 3 1 1 2 0 -99 0 0 0 0 0 0 0 # Catch_Mult:_1_Fishery
+ 0.2 3 1 1 2 0 -99 0 0 0 0 0 0 0 # _Catch_Mult_1
 #  fraction female, by GP
  1e-06 0.999999 0.5 0.5 0.5 0 -99 0 0 0 0 0 0 0 # FracFemale_GP_1
 #  M2 parameter for each predator fleet

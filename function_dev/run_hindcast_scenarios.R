@@ -18,22 +18,27 @@
 
 
 run_hindcast_scenarios <- function(base_df,scenarios, mase_type, rec_devs,n_cores,iterations,output_dir, n_retro_years =NULL,
-                                  data_type = NULL, base_data_dir = NULL, f_points)
+                                  data_type = NULL, base_data_dir = NULL, f_pattern){
+  
   
   #Check function type if one expected
-  ifelse(!mase_type %in% c("full","data","years"),print("Warning: mase type incorrect"),)
+  ifelse(!mase_type %in% c("full","data","years"),print("Warning: mase type incorrect"),print(mase_type))
 
   #Trim the base df based on scenarios specified
   sim_frame <- base_df[base_df$scenarios %in% scenarios,]
   
+  sim_frame[["cf.fvals.1"]] <- f_pattern
   
   #Scenario type 1: Full scenarios
   if(mase_type == "full"){
     
     #mark the scenarios to keep track
     sim_frame$scenarios <- paste0(sim_frame$scenairos,"_full")
+    
+    #print scenarios being run
+    print(sim_df$scenarios)
 
-  } else if (mase_type = "years"){
+  } else if (mase_type == "years"){
     #check how mnay retros, make the required df that long
     sim_frame_years <- sim_frame
     if(length(n_years) == 1){
@@ -62,14 +67,8 @@ run_hindcast_scenarios <- function(base_df,scenarios, mase_type, rec_devs,n_core
     }
   } else if (mase_type == "data"){
     
-    sim_frame_data <- sim_frame
-    old_names<- paste0(output_dir,"/",sim_frame$scenarios)
-    new_names <- paste0(output_dir,"/",sim_frame$scenarios,"_drop_",data_type)
-    #create a new dir
-    dir.create(path = new_names)
-    #Start by coping the whole full directory over
-    file.copy(old_names,new_names)
-    
+    drop_series(base_data_dir = base_data_dir,data_type = data_type,iterations = iterations,scenarios = scenarios,
+                n_cores = 5)
     
     
     
@@ -80,7 +79,7 @@ run_hindcast_scenarios <- function(base_df,scenarios, mase_type, rec_devs,n_core
   
   ###Now run the sims
   #Set up parallel
-  simdf <- ifelse(mase_type == "full",df,ifelse(mase_type == "years",sim_frame_years,sim_frame_data))
+  simdf <- ifelse(mase_type == "full",sim_frame,ifelse(mase_type == "years",sim_frame_years,sim_frame_data))
   
   
   cl <- makeCluster(getOption("cl.cores", n_cores))
@@ -97,5 +96,6 @@ run_hindcast_scenarios <- function(base_df,scenarios, mase_type, rec_devs,n_core
   )
   get_results_all()
   stopCluster(cl) #close cluster
+}
   
   

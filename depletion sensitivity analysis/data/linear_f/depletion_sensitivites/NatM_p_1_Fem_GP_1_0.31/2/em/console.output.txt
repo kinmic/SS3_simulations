@@ -1,0 +1,69 @@
+###
+console output
+2024-06-25 12:52:45.82407
+###
+ 
+ reading from starter.ss
+ reading from data file
+Data read successful 999
+
+ reading forecast file 
+ reading from control file
+End of control file successful! 999
+Begin setting up parameters ...  end of parameter section 
+Evaluating biology calculations once ... done
+Starting optimization of 'ss3' in phase 1 of 6 at Tue Jun 25 12:52:30 2024
+phase= 1 | nvar=  1 | iter=  0 | nll=6.09e+06 | mag=1.22e+07 | par[  1]=SR_parm[1]
+phase= 1 | nvar=  1 | iter=  5 | nll=1.04e+03 | mag=7.08e-01 | par[  1]=SR_parm[1]
+phase= 2 | nvar= 98 | iter=  0 | nll=1.04e+03 | mag=1.49e+03 | par[ 85]=recdev1[84]
+phase= 2 | nvar= 98 | iter= 20 | nll=7.92e+02 | mag=2.00e+03 | par[  1]=SR_parm[1]
+phase= 2 | nvar= 98 | iter= 40 | nll=7.48e+02 | mag=2.25e+03 | par[  1]=SR_parm[1]
+phase= 2 | nvar= 98 | iter= 60 | nll=7.07e+02 | mag=2.47e+02 | par[  1]=SR_parm[1]
+Exiting without success due to excessive function evaluations (maxfn=100) | mag=253.197
+phase= 2 | nvar= 98 | iter= 68 | nll=7.00e+02 | mag=2.53e+02 | par[  1]=SR_parm[1]
+phase= 3 | nvar=100 | iter=  0 | nll=7.00e+02 | mag=2.57e+02 | par[  1]=SR_parm[1]
+phase= 3 | nvar=100 | iter= 20 | nll=6.90e+02 | mag=1.55e+02 | par[ 69]=recdev1[68]
+phase= 3 | nvar=100 | iter= 40 | nll=6.86e+02 | mag=1.82e+02 | par[  1]=SR_parm[1]
+phase= 3 | nvar=100 | iter= 60 | nll=6.77e+02 | mag=1.53e+02 | par[  1]=SR_parm[1]
+Exiting without success due to excessive function evaluations (maxfn=100) | mag=57.7761
+phase= 3 | nvar=100 | iter= 72 | nll=6.72e+02 | mag=5.78e+01 | par[ 98]=selparm[3]
+phase= 4 | nvar=107 | iter=  0 | nll=6.72e+02 | mag=9.40e+02 | par[  2]=MGparm[3]
+phase= 4 | nvar=107 | iter= 20 | nll=6.65e+02 | mag=1.28e+03 | par[  2]=MGparm[3]
+phase= 4 | nvar=107 | iter= 40 | nll=6.64e+02 | mag=1.02e+03 | par[  2]=MGparm[3]
+phase= 4 | nvar=107 | iter= 60 | nll=6.62e+02 | mag=1.36e+02 | par[  2]=MGparm[3]
+Exiting without success due to excessive function evaluations (maxfn=100) | mag=19.3757
+phase= 4 | nvar=107 | iter= 72 | nll=6.62e+02 | mag=1.94e+01 | par[  2]=MGparm[3]
+phase= 5 | nvar=110 | iter=  0 | nll=6.62e+02 | mag=1.18e+03 | par[106]=Q_parm[1]
+phase= 5 | nvar=110 | iter= 20 | nll=6.58e+02 | mag=1.05e+03 | par[106]=Q_parm[1]
+phase= 5 | nvar=110 | iter= 40 | nll=6.51e+02 | mag=1.37e+03 | par[  2]=MGparm[3]
+phase= 5 | nvar=110 | iter= 60 | nll=6.45e+02 | mag=1.40e+03 | par[  2]=MGparm[3]
+phase= 5 | nvar=110 | iter= 80 | nll=6.32e+02 | mag=1.32e+03 | par[106]=Q_parm[1]
+phase= 5 | nvar=110 | iter=100 | nll=6.23e+02 | mag=2.13e+02 | par[  2]=MGparm[3]
+phase= 5 | nvar=110 | iter=120 | nll=6.19e+02 | mag=2.90e+02 | par[106]=Q_parm[1]
+phase= 5 | nvar=110 | iter=140 | nll=6.18e+02 | mag=3.26e+02 | par[106]=Q_parm[1]
+phase= 5 | nvar=110 | iter=160 | nll=6.17e+02 | mag=9.21e+00 | par[  1]=MGparm[2]
+phase= 5 | nvar=110 | iter=179 | nll=6.17e+02 | mag=1.55e-05 | par[  2]=MGparm[3]
+phase= 6 | nvar=111 | iter=  0 | nll=6.17e+02 | mag=1.55e-05 | par[  2]=MGparm[3]
+Optimization completed after 14 s with final statistics:
+  nll=616.734523 | mag=1.54797e-05 | par[  2]=MGparm[3]
+
+Warning: the following parameters had issues
+  SR_parm[1] is within 0.1% of upper bound: 4 < 20 < 20
+
+Wrote first version of output files (before hessian, benchmark, and forecast)
+Iterations: 620
+Finished calculating benchmarks
+Finished forecast
+Writing wtatage.ss_new
+mceval counter: 0
+Finished posteriors
+ finished appending to cumreport.sso 
+Finished final writing of report.sso
+Begin writing *.ss_new output files ... Finished writing *.ss_new output files
+
+ N parameters that are on or within 1% of min-max bound: 1
+
+!!  Run has completed  !! 
+!!  See warning.sso for 5 warnings  and 5 notes 
+
+Finished running model 'ss3' after 15 s.

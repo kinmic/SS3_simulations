@@ -1,6 +1,0 @@
-,LO,HI,INIT,PRIOR,PR_SD,PR_type,PHASE,env_var&link,dev_link,dev_minyr,dev_maxyr,dev_PH,Block,Block_Fxn
-SR_LN(R0),4,20,16,15,10,0,1,0,0,0,0,0,0,0
-SR_BH_steep,0.2,1,0.59,0.7,0.05,0,-3,0,0,0,0,0,0,0
-SR_sigmaR,0,2,0.73,0.8,0.8,0,-99,0,0,0,0,0,0,0
-SR_regime,-5,5,0,0,1,0,-99,0,0,0,0,0,0,0
-SR_autocorr,0,0,0,0,0,0,-6,0,0,0,0,0,0,0

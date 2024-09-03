@@ -8,9 +8,9 @@
 #its: Number of iterations in the simulation
 # sigma r: sigma r of species
 #bias adjust: whether or not to perform bias adjustment - if FALSE, all values will be 0
-
-years <- seq(1,100,1)
-its <-  seq(1,100,1)
+# 
+# years <- seq(1,100,1)
+# its <-  seq(1,100,1)
 
 #Create the matrix
 
